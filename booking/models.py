@@ -15,3 +15,11 @@ class Reservation(models.Model):
     time = models.TimeField()
     email = models.EmailField(max_length=50)
     notes = models.TextField()
+
+    class Meta():
+        ordering = ["-date"]
+
+    def __str__(self):
+
+        # return f"Dear {self.name} your booking on {self.date} at {self.time} confirmed"
+        return f"reservation for {self.name}"
