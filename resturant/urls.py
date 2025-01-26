@@ -20,7 +20,9 @@ from django.urls import path, include
 
 urlpatterns = [
     # path('', booking_views.ReservationListView.as_view(), name='booking_list'),
+    path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
     path('', include("booking.urls"), name="booking-urls"),
     # path('reservationss/', booking_views.test, name='booking'),
-    path('admin/', admin.site.urls),
+
 ]
