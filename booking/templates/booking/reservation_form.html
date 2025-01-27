@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <input type="hidden" name="user" value="{{ request.user.id }}" required id="id_user">
+    <p>
+        <label for="id_name">Name:</label>
+        <input type="text" name="name" maxlength="50" required id="id_name">
+
+
+    </p>
+
+
+    <p>
+        <label for="id_date">Date:</label>
+        <input type="text" name="date" value="2025-01-27" required id="id_date"><input type="hidden" name="initial-date"
+            value="2025-01-27 15:23:43+00:00" id="initial-id_date">
+
+
+    </p>
+
+
+    <p>
+        <label for="id_time">Time:</label>
+        <input type="text" name="time" required id="id_time">
+
+
+    </p>
+
+
+    <p>
+        <label for="id_notes">Notes:</label>
+        <textarea name="notes" cols="40" rows="10" required id="id_notes">
+</textarea>
+
+
+
+
+    </p>
+    <input type="submit">
+</form>
+
+{% endblock %}

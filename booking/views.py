@@ -1,4 +1,4 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 from django.shortcuts import render
 # from django.http import HttpResponse
 from .models import Reservation
@@ -21,3 +21,10 @@ class ReservationList(ListView):
     queryset = Reservation.objects.all().order_by("-date")
     template_name = "booking/index.html"
     paginate_by = 6
+
+
+"""
+class ResevationCreateView(CreateView):
+    model = Reservation
+    fields = ["name", "date", "time", "time", "notes", "user"]
+"""
