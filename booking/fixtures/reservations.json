@@ -1,0 +1,14 @@
+[
+    {
+        "model": "booking.reservation",
+        "pk": null,
+        "fields": {
+            "user": "manager",
+            "name": "tak",
+            "date": "2025-09-13T09:29:48.494Z",
+            "time": "06:48:06",
+            "email": "kasusaimi@gmail.com",
+            "notes": "i am out."
+        }
+    },
+]

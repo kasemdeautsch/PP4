@@ -19,4 +19,5 @@ class ReservationList(ListView):
     # queryset = Reservation.objects.all()
     # queryset = Reservation.objects.filter(name='jamal')
     queryset = Reservation.objects.all().order_by("-date")
-    # template_name = "reservation_list.html"
+    template_name = "booking/index.html"
+    paginate_by = 6
