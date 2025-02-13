@@ -1,9 +1,18 @@
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView,TemplateView
 from django.shortcuts import render
 #from django.http import HttpResponse
 from .models import Reservation
 
 # Create your views here.
+
+
+class Home(TemplateView):
+    """
+    View to render the home page
+    """
+
+    template_name = "booking/index.html"
+
 
 """
 def test(request):
@@ -12,7 +21,7 @@ def test(request):
 
 # class ReservationListView(ListView):
 
-
+"""""
 class ReservationList(ListView):
     # model = Reservation
     context_object_name = 'reservations'
@@ -23,7 +32,7 @@ class ReservationList(ListView):
     #paginate_by = 6
     
 
-
+"""
 """
 class ResevationCreateView(CreateView):
     model = Reservation
