@@ -14,7 +14,9 @@ body {
     background-color:white;
 }
 
-
+.navbar {
+    box-shadow: 0 2px 2px #3a3a3a;
+}
 
 
 
