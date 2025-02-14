@@ -20,7 +20,11 @@ body {
     box-shadow: 0 2px 2px #3a3a3a;
 }
 
-
+#cop {
+    color: white;
+    background-color: brown;
+    font-size: large;
+}
 
 /*Footer*/
 footer {
