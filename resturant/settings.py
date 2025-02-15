@@ -34,7 +34,6 @@ ALLOWED_HOSTS = ['8000-kasemdeautsch-pp4-rol7zn3brnf.ws.codeinstitute-ide.net',
                  '127.0.0.1',
                  '.herokuapp.com']
 
-
 # Application definition
 
 INSTALLED_APPS = [
