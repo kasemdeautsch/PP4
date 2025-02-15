@@ -80,6 +80,11 @@
             </li>
             {% endif %}
           </ul>
+          {% if user.is_authenticated %}
+          <p class="text-center m-3">You are logged in as: {{ user }}</p>
+          {% else %}
+          <p class="text-center m-3">You are not logged in!</p>
+          {% endif %}
         </div>
       </div>
     </nav>
@@ -102,14 +107,10 @@
       </div>
     </div>
     <main class="flex-shrink-0 main-bg">
-      {% if user.is_authenticated %}
-      <p class="text-center m-3">You are logged in as: {{ user }}</p>
-      {% else %}
-      <p class="text-center m-3">You are not logged in!</p>
-      {% endif %}
+      
       {% block content %}
       <!-- Content Goes here -->
-      <p>This is my default paragraph!</p>
+      
       {% endblock content %}
 
       {% block reservations %}

@@ -21,5 +21,5 @@ class Reservation(models.Model):
 
     def __str__(self):
 
-        return f"Dear {self.name} your booking on {self.date} at {self.time} confirmed"
+        return f"** Dear {self.name} your booking on {self.date} at {self.time}, Confirmed! **"
         #return f"reservation for {self.name}"

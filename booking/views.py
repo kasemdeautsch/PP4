@@ -24,7 +24,7 @@ def reservation_list(request):
 
     
     #user = get_object_or_404(User, user=request.user)
-    reservations = Reservation.objects.all()
+    reservations = Reservation.objects.filter(user=request.user)
             
     return render(
         request,
