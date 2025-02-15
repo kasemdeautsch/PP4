@@ -1,25 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "base.html" %}
 
-<body>
-    <p>{% for item in reservations %}
-        {{item.name}}
-        {{item.email}}
-        {% endfor %}
-    </p>
-    <hr>
-    <h1>reservations list</h1>
-    {% for item in object_list %}
-    <h2>{{item.name}}</h2>
-    <p>{{item.email}}</p>
-    <p>date: {{item.date}}</p>
-    {% endfor %}
-</body>
+{% block reservations %}
 
-</html>
+<section class="container-fluid">
+    <div class="row">
+
+        <!-- Reservations Column -->
+        
+        <div class="col-12 mt-3 left">
+            <div class="card m-3 p-3 text-bg-dark">
+                <div class="card-body text-center ">
+                  {% for reservation in reservations %}
+                  <h1 class="card-title mb-3 display-5">Book me!</h1>
+                  <p class="card-text mb-4" id="reservation{{ reservation.id}}">
+                    {{ reservation }}
+                  </p>
+                  {% if user.is_authenticated %}
+                  <button class="btn btn-warning" data-comment_id="{{ reservation.id }}">Delete</button>
+                  <button class="btn btn-secondary" data-comment_id="{{ reservation.id }}">Edit</button>
+                  {% else %}
+                  <p>Please login to book for a meal.</p>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                  
+              </div>
+        </div>
+    </div>
+    
+</section>
+
+{% endblock reservations %}
