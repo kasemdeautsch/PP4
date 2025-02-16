@@ -17,7 +17,7 @@
                   <p class="card-text mb-4" id="reservation{{ reservation.id}}">
                     {{ reservation }}
                   </p>
-                  {% if user.is_authenticated %}
+                  {% if user.is_authenticated and reservation.user == request.user %}
                   <button class="btn btn-warning me-3 mb-3" data-comment_id="{{ reservation.id }}">Delete Booking</button>
                   <button class="btn btn-info mb-3" data-comment_id="{{ reservation.id }}">Edit Booking</button>
                   {% else %}

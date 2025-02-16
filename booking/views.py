@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 from django.contrib.auth.models import User
+from .forms import ReservationForm
 from .models import Reservation
 
 # Create your views here.
@@ -19,7 +20,6 @@ class Home(TemplateView):
     template_name = "booking/index.html"
 
 
-@login_required
 def reservation_list(request):
 
     
@@ -34,6 +34,20 @@ def reservation_list(request):
         },
         
     )
+
+
+def make_reservation(request):
+
+    reservation_form = ReservationForm
+
+    return render(
+        request,
+        "booking/make_reservation.html",
+        {
+            "reservation_form": reservation_form,
+        },
+    )
+
 
 # class ReservationListView(ListView):
 
