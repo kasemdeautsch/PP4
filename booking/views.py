@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import ReservationForm
@@ -24,7 +24,11 @@ class Home(TemplateView):
 def reservation_list(request):
 
     #user = get_object_or_404(User, user=request.user)
+    #queryset = Reservation.objects.filter(user=request.user)
+    #user = get_object_or_404(queryset, slug=slug)
     reservations = Reservation.objects.filter(user=request.user)
+    reservations = reservations.order_by('-date')
+    #reservations = reservations.objects.filter(date >= timezone.now)
             
     return render(
         request,

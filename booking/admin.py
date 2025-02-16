@@ -8,7 +8,7 @@ class ReservationAdmin(SummernoteModelAdmin):
 
     list_display = ('name', 'date', 'time')
     search_fields = ['name']
-    list_filter = ('name',)
+    list_filter = ('name', 'date',)
     summernote_fields = ('notes',)
 
 
