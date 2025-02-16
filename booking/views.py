@@ -38,7 +38,7 @@ def reservation_list(request):
 
 def make_reservation(request):
 
-    reservation_form = ReservationForm
+    reservation_form = ReservationForm()
 
     return render(
         request,
