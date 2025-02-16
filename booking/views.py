@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .forms import ReservationForm
 from .models import Reservation
 
@@ -22,7 +23,6 @@ class Home(TemplateView):
 
 def reservation_list(request):
 
-    
     #user = get_object_or_404(User, user=request.user)
     reservations = Reservation.objects.filter(user=request.user)
             
@@ -38,6 +38,16 @@ def reservation_list(request):
 
 def make_reservation(request):
 
+    if request.method == "POST":
+        reservation_form = ReservationForm(data=request.POST)
+        if reservation_form.is_valid():
+            reservation = reservation_form.save(commit=False)
+            reservation.user = request.user
+            reservation.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                "Yor have successfully booked a reservation!"
+            )
     reservation_form = ReservationForm()
 
     return render(
