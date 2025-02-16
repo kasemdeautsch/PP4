@@ -27,7 +27,9 @@ body {
     opacity: .8;
 }
 
-
+.c-color {
+    background-color: #fac7e0;
+}
 /*Footer*/
 footer {
     background-color:#f3f5f9;
