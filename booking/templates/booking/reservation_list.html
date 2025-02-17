@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-
+{% load static %}
 {% block reservations %}
 
 <section class="container-fluid">
@@ -18,8 +18,8 @@
                     {{ reservation }}
                   </p>
                   {% if user.is_authenticated and reservation.user == request.user %}
-                  <button class="btn btn-warning me-3 mb-3" data-comment_id="{{ reservation.id }}">Delete Booking</button>
-                  <button class="btn btn-info mb-3" data-comment_id="{{ reservation.id }}">Edit Booking</button>
+                  <button class="btn btn-warning me-3 mb-3 btn-delete" reserv-id="{{ reservation.id }}">Delete Booking</button>
+                  <a href="#" class="btn btn-info mb-3 btn-edit" reserv-id="{{ reservation.id }}">Edit Booking</a>
                   {% else %}
                   <p>Please login to book for a meal.</p>
                   {% endif %}
@@ -39,3 +39,7 @@
 </section>
 
 {% endblock reservations %}
+
+{% block scripts %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

@@ -115,8 +115,13 @@
 
       {% block reservations %}
       {% endblock reservations %}
+
       {% block make %}
       {% endblock %}
+
+      {% block edit %}
+      {% endblock %}
+
     </main>
     <!-- Footer -->
     <footer class="container-fluid footer mt-auto py-3">
@@ -175,6 +180,8 @@
       crossorigin="anonymous"
     ></script>
     <!-- Custom Js -->
-    <script src="{% static 'js/script.js' %}"></script>
+     {% block scripts %}
+     {% endblock %}
+    
   </body>
 </html>

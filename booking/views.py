@@ -1,5 +1,5 @@
 from django.views.generic import ListView, CreateView,TemplateView
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect,reverse
 #from django.http import HttpResponse
 
 from django.contrib.auth.decorators import login_required
@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation
 
@@ -62,6 +63,35 @@ def make_reservation(request):
         },
     )
 
+
+def edit_reservation(request, reservation_id):
+    print(reservation_id)
+
+    if request.method == "POST":
+        reservation = get_object_or_404(Reservation, pk=reservation_id)
+        reservation_form = ReservationForm(data=request.POST, instance=reservation)
+        if reservation_form.is_valid():
+            reservation = reservation_form.save(commit=False)
+            reservation.user = request.user
+            reservation.save()
+            messages.add_message(request, messages.SUCCESS, "Updated")
+            return HttpResponseRedirect(reverse("reservations"))
+            
+        else:
+            messages.add_message(request, messages.ERROR, "Error updating")
+            reservation_form = ReservationForm()
+            return HttpResponseRedirect(reverse("home"))
+
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    reservation_form = ReservationForm(instance=reservation)
+
+    return render(
+        request,
+        "booking/edit_reservation.html",
+        {
+            "reservation_form": reservation_form,
+        },
+    )
 
 # class ReservationListView(ListView):
 

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block edit %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            <form id= "reservationForm" class= "m-3 p-3 c-color" method= "post" action="">
+                <div class="p-3">
+                    {{ reservation_form | crispy }}
+                </div>
+                
+                {% csrf_token %}
+                <div class="col-12">
+                    <button id="submitButton" class="btn btn-info btn-lg mx-3"  type="submit">Submit</button>
+                    <a href="{% url 'reservations' %}" class="btn btn-primary btn-lg">&laquo;Back..</a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
