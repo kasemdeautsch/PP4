@@ -70,17 +70,18 @@ def edit_reservation(request, reservation_id):
     if request.method == "POST":
         reservation = get_object_or_404(Reservation, pk=reservation_id)
         reservation_form = ReservationForm(data=request.POST, instance=reservation)
-        if reservation_form.is_valid():
+        if reservation_form.is_valid() and reservation.user == request.user:
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
-            messages.add_message(request, messages.SUCCESS, "Updated")
+            messages.add_message(request, messages.SUCCESS, "Reservation Updated Successfully!")
+            reservation_form = ReservationForm()
             return HttpResponseRedirect(reverse("reservations"))
             
         else:
-            messages.add_message(request, messages.ERROR, "Error updating")
+            messages.add_message(request, messages.ERROR, "Error Updating Reservation!")
             reservation_form = ReservationForm()
-            return HttpResponseRedirect(reverse("home"))
+            return HttpResponseRedirect(reverse("reservations"))
 
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     reservation_form = ReservationForm(instance=reservation)
@@ -92,6 +93,18 @@ def edit_reservation(request, reservation_id):
             "reservation_form": reservation_form,
         },
     )
+
+
+def delete_reservation(request, reservation_id):
+
+    reservation = get_object_or_404(Reservation, pk=reservation_id)
+    if reservation.user == request.user:
+        reservation.delete()
+        messages.add_message(request, messages.SUCCESS, "Reservation deleted Successfully")
+    else:
+        messages.add_message(request, messages.SUCCESS, "Error! You can only delete your own reservations.")
+    return HttpResponseRedirect(reverse("reservations"))
+
 
 # class ReservationListView(ListView):
 
