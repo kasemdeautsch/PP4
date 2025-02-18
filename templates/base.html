@@ -1,4 +1,4 @@
-{% load static %} 
+{% load static %}
 {% url 'home' as home_url %} 
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as signup_url %} 
@@ -30,7 +30,9 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-sm bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">B<span class="o-brand">oo</span>kings</a>
+        <a class="navbar-brand" href="{% url 'home' %}"
+          >B<span class="o-brand">oo</span>kings</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -42,7 +44,10 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse home-margin" id="navbarSupportedContent">
+        <div
+          class="collapse navbar-collapse home-margin"
+          id="navbarSupportedContent"
+        >
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a
@@ -80,8 +85,11 @@
             </li>
             {% endif %}
           </ul>
+          <!-- Check the user authenticated and display it in the top-right  -->
           {% if user.is_authenticated %}
-          <p class="text-center m-3 loging">You are logged in as: <span><em>{{ user }}</em></span></p>
+          <p class="text-center m-3 user-loging">
+            You are logged in as: <span><em>{{ user }}</em></span>
+          </p>
           {% else %}
           <p class="text-center m-3 loging">You are not logged in!</p>
           {% endif %}
@@ -93,7 +101,11 @@
       <div class="row">
         <div class="col-md-8 offset-md-2">
           {% for message in messages %}
-          <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+          <div
+            class="alert {{ message.tags }} alert-dismissible fade show"
+            id="msg"
+            role="alert"
+          >
             {{ message | safe }}
             <button
               type="button"
@@ -107,21 +119,18 @@
       </div>
     </div>
     <main class="flex-shrink-0 main-bg">
-      
       {% block content %}
       <!-- Content Goes here -->
-      
-      {% endblock content %}
+      {% endblock content %} 
 
-      {% block reservations %}
-      {% endblock reservations %}
+      {% block reservations %} 
+      {% endblock reservations %} 
 
-      {% block make %}
+      {% block make %} 
+      {% endblock %} 
+
+      {% block edit %} 
       {% endblock %}
-
-      {% block edit %}
-      {% endblock %}
-
     </main>
     <!-- Footer -->
     <footer class="container-fluid footer mt-auto py-3">
@@ -180,8 +189,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- Custom Js -->
-     {% block scripts %}
-     {% endblock %}
-    
+    {% block scripts %} 
+    {% endblock %}
   </body>
 </html>

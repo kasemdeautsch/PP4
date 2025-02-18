@@ -4,11 +4,13 @@
     #1f7798; mid-blue
     #184f63; dark-blue
 */
+
 /* Google Fonts */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins&display=swap');
 
 /*Asterisc wildcard selector to override default styles in the browser */
+
 * {
     margin: 0;
     padding: 0;
@@ -29,16 +31,18 @@ body {
     box-shadow: 0 2px 2px #3a3a3a;
 }
 
+/* Add Menue navbar margin*/
 .home-margin {
     margin-top: .4rem;
 }
-.loging {
+
+.user-loging {
     font-size: .9rem;
 }
-h1,
-h2 {
+
+h1,h2,
+h3 {
     font-family: "DM Serif Display", serif;
-    color: #184f63; /* dark-blue */
 }
 
 p {
@@ -46,17 +50,18 @@ p {
 }
 
 
-.bookme {
+.book-button {
     color: #fff;
 }
 
-.c-color {
+.card-color {
     background-color: #ffe6a7;
 }
 
 .o-brand {
     color: red;
 }
+
 /*Footer*/
 footer {
     background-color:#f4f3ee;

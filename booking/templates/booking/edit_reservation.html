@@ -1,24 +1,35 @@
-{% extends "base.html" %}
-{% load crispy_forms_tags %}
+{% extends "base.html" %} 
+{% load crispy_forms_tags %} 
 {% block edit %}
+<!-- Form to edit Booking in Bootstrap card column -->
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-lg-8">
-            <form id= "reservationForm" class= "m-3 p-3 c-color" method= "post" action="">
-                <h3 class="card-title pb-2">Edit Booking:</h3>
-                <div class="p-3">
-                    {{ reservation_form | crispy }}
-                </div>
-                
-                {% csrf_token %}
-                <div class="col-12">
-                    <button id="submitButton" class="btn btn-info btn-lg mx-3"  type="submit">Update</button>
-                    <a href="{% url 'reservations' %}" class="btn btn-primary btn-lg">&laquo; Back..</a>
-                </div>
-                
-            </form>
+  <div class="row">
+    <div class="col-md-10 col-lg-8">
+      <form
+        id="reservationForm"
+        class="m-3 p-3 card-color"
+        method="post"
+        action=""
+      >
+        <h3 class="card-title pb-2">Edit Booking:</h3>
+        <div class="p-3">{{ reservation_form | crispy }}</div>
+
+        {% csrf_token %}
+        <div class="col-12">
+          <button
+            id="submitButton"
+            class="btn btn-info btn-lg mx-3 book-button"
+            type="submit"
+          >
+            Update
+          </button>
+          <a href="{% url 'reservations' %}" class="btn btn-primary btn-lg"
+            >&laquo; Back..</a
+          >
         </div>
+      </form>
     </div>
+  </div>
 </div>
 
 {% endblock %}
