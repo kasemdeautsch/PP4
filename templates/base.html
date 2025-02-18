@@ -42,7 +42,7 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse home-margin" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
               <a
@@ -81,9 +81,9 @@
             {% endif %}
           </ul>
           {% if user.is_authenticated %}
-          <p class="text-center m-3">You are logged in as: {{ user }}</p>
+          <p class="text-center m-3 loging">You are logged in as: <span><em>{{ user }}</em></span></p>
           {% else %}
-          <p class="text-center m-3">You are not logged in!</p>
+          <p class="text-center m-3 loging">You are not logged in!</p>
           {% endif %}
         </div>
       </div>
