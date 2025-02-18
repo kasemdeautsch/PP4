@@ -21,6 +21,9 @@ h2 {
     color: #184f63; /* dark-blue */
 }
 
+p {
+    font-size: 1.1rem;
+}
 /* Body */
 body {
     font-family: "Poppins", sans-serif;
@@ -40,6 +43,10 @@ body {
 
 .c-color {
     background-color: #ffe6a7;
+}
+
+.o-brand {
+    color: red;
 }
 /*Footer*/
 footer {
