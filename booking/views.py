@@ -28,11 +28,8 @@ class Home(TemplateView):
 
 def reservation_list(request):
 
-    #user = get_object_or_404(User, user=request.user)
-    #queryset = Reservation.objects.filter(user=request.user)
-    #user = get_object_or_404(queryset, slug=slug)
-    reservations = Reservation.objects.filter(user=request.user).order_by('-date')
-    #reservations = reservations.order_by('-date')
+    user = get_object_or_404(User, username=request.user)
+    reservations = Reservation.objects.filter(user=user).order_by('-date')
     reservations_count = reservations.count()
     #reservations = reservations.objects.filter(date >= timezone.now)
     
@@ -107,9 +104,9 @@ def delete_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     if reservation.user == request.user:
         reservation.delete()
-        messages.add_message(request, messages.SUCCESS, "Reservation deleted Successfully")
+        messages.add_message(request, messages.SUCCESS, "Booking deleted Successfully")
     else:
-        messages.add_message(request, messages.SUCCESS, "Error! You can only delete your own reservations.")
+        messages.add_message(request, messages.SUCCESS, "Error! You can only delete your own Booking.")
     return HttpResponseRedirect(reverse("reservations"))
 
 
