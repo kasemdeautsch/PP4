@@ -78,12 +78,12 @@ def edit_reservation(request, reservation_id):
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
-            messages.add_message(request, messages.SUCCESS, "Reservation Updated Successfully!")
+            messages.add_message(request, messages.SUCCESS, "Booking Updated Successfully!")
             reservation_form = ReservationForm()
             return HttpResponseRedirect(reverse("reservations"))
             
         else:
-            messages.add_message(request, messages.ERROR, "Error Updating Reservation!")
+            messages.add_message(request, messages.ERROR, "Error Updating Booking!")
             reservation_form = ReservationForm()
             return HttpResponseRedirect(reverse("reservations"))
 

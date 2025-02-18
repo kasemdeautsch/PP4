@@ -14,13 +14,13 @@ class Reservation(models.Model):
     date = models.DateField(default=timezone.now)
     time = models.TimeField()
     email = models.EmailField(max_length=50)
-    notes = models.TextField()
+    notes = models.TextField(blank=True)
 
     class Meta():
         ordering = ["-date"]
 
     def __str__(self):
 
-        return (f"** Dear {self.name} your booking on {self.date}"
+        return (f"** Dear {self.name} your booking on {self.date}, "
                 f"at {self.time}, is Confirmed! **")
         

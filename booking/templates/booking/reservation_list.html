@@ -11,7 +11,7 @@
         <div class="col-12 mt-3 left">
             <div class="card m-3 p-3">
                 <div class="card-body text-center c-color">
-                    <h1 class="card-title mb-3 h2 pb-3">My Bookings!</h1>
+                    <h3 class="card-title mb-3 pb-3">My Bookings!</h3>
                     {% if reservations_count == 0 %}
                     <p>You have no Bookings!</p>
                     {% else %}
@@ -29,7 +29,7 @@
                     {% endfor %}
                     {% endif %}
                     <div class="col-12 mt-3">
-                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">&laquo;Back..</a>
+                        <a href="{% url 'home' %}" class="btn btn-primary btn-lg">&laquo; Home</a>
                     </div>
                 </div>
                 
