@@ -1,34 +1,42 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
-{% load i18n %}
-{% load account socialaccount %}
+{% load i18n %} 
+{% load account socialaccount %} 
+{% block head_title %} {% trans "Sign In" %} {% endblock %} 
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
+<!-- Bootstrap elements and classes to login page -->
+ <!-- 'Code institute' login page-->
 {% block content %}
-
 <div class="container card-color p-3 mt-5">
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <h3 class="mb-3">{% trans "Sign In.." %}</h3>
-
-            <p>{% blocktrans %}Welcome back to the Web Booking App. To leave a comment or like a post, please log in. If
-                you
-                have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
-        </div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3 class="mb-3">{% trans "Sign In.." %}</h3>
+      <p>
+        {% blocktrans %}
+        Welcome back to the Web Booking App. To leave a comment
+        or like a post, please log in. If you have not created an account yet,
+        then <a class="link" href="{{ signup_url }}">sign up</a> first.
+        {% endblocktrans %}
+      </p>
     </div>
-    <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
-            <form class="login" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
-            </form>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %} 
+        {{ form.as_p }} 
+        {% if redirect_field_value %}
+        <input
+          type="hidden"
+          name="{{ redirect_field_name }}"
+          value="{{ redirect_field_value }}"
+        />
+        {% endif %}
+        <button class="btn btn-primary right" type="submit">
+          {% trans "Sign In" %}
+        </button>
+      </form>
     </div>
+  </div>
 </div>
 {% endblock %}
