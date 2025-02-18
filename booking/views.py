@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation
+import datetime
 
 # Create your views here.
 
@@ -18,6 +19,9 @@ class Home(TemplateView):
     """
     View to render the home page
     """
+    print('datetime.date.today-->>', datetime.date.today())
+    print('timezone.now-->>', timezone.now())
+    print('datetime.datetime.now()-->>',  datetime.datetime.now())
 
     template_name = "booking/index.html"
 
@@ -27,15 +31,17 @@ def reservation_list(request):
     #user = get_object_or_404(User, user=request.user)
     #queryset = Reservation.objects.filter(user=request.user)
     #user = get_object_or_404(queryset, slug=slug)
-    reservations = Reservation.objects.filter(user=request.user)
-    reservations = reservations.order_by('-date')
+    reservations = Reservation.objects.filter(user=request.user).order_by('-date')
+    #reservations = reservations.order_by('-date')
+    reservations_count = reservations.count()
     #reservations = reservations.objects.filter(date >= timezone.now)
-            
+    
     return render(
         request,
         "booking/reservation_list.html",
         {
             "reservations": reservations,
+            "reservations_count": reservations_count,
         },
         
     )
@@ -49,10 +55,11 @@ def make_reservation(request):
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                "Yor have successfully booked a reservation!"
-            )
+            messages.add_message(request, messages.SUCCESS, "Yor have successfully booked!")
+        else:
+            messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
+            reservation_form = ReservationForm()
+            #return HttpResponseRedirect(reverse("reservations"))
     reservation_form = ReservationForm()
 
     return render(
