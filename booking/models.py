@@ -22,7 +22,7 @@ class Reservation(models.Model):
         User, on_delete=models.CASCADE, related_name="resev_user")
     name = models.CharField(max_length=50)
     date = models.DateField(default=timezone.now)
-    time = models.TimeField()
+    time = models.TimeField(default=timezone.now)
     email = models.EmailField(max_length=50)
     notes = models.TextField(blank=True)
 

@@ -20,13 +20,13 @@ class Home(TemplateView):
     View to render the home page
     """
     
-    print('timezone.now-->>', timezone.now())
-    print('timezone.now.date-->>', timezone.now().time())
+    print('timezone.now-->>', timezone.now().date())
+    print('timezone.now.time-->>', timezone.now().time())
     print('datetime.date.today-->>', datetime.date.today())
     print('datetime.datetime.now()-->>',  datetime.datetime.now())
     print('timezone.current-->>', timezone.get_current_timezone())
     print('timezone.datetime-->>', timezone.datetime(1,2,3))
-    print('timezone.datetime-->>', datetime.time(12,15))
+    print('timezone.datetime-->>', datetime.date(2012,11,1))
     
     template_name = "booking/index.html"
 
