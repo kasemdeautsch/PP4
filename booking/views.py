@@ -19,20 +19,35 @@ class Home(TemplateView):
     """
     View to render the home page
     """
-    print('datetime.date.today-->>', datetime.date.today())
+    
     print('timezone.now-->>', timezone.now())
+    print('timezone.now.date-->>', timezone.now().time())
+    print('datetime.date.today-->>', datetime.date.today())
     print('datetime.datetime.now()-->>',  datetime.datetime.now())
-
+    print('timezone.current-->>', timezone.get_current_timezone())
+    print('timezone.datetime-->>', timezone.datetime(1,2,3))
+    print('timezone.datetime-->>', datetime.time(12,15))
+    
     template_name = "booking/index.html"
 
 
 def reservation_list(request):
+    """
+    Display a list of reservations :model:`booking.Reservation`.
 
+    **Context**
+
+    ``reservations``
+        All reservations of the requested user :model:`booking.Reservation`.
+    ``reservations_count``
+        A count of reservations related to the user.
+    **Template:**
+
+    :template:`booking/reservation_list.html`
+    """
     user = get_object_or_404(User, username=request.user)
     reservations = Reservation.objects.filter(user=user).order_by('-date')
     reservations_count = reservations.count()
-    #reservations = reservations.objects.filter(date >= timezone.now)
-    
     return render(
         request,
         "booking/reservation_list.html",
@@ -40,12 +55,21 @@ def reservation_list(request):
             "reservations": reservations,
             "reservations_count": reservations_count,
         },
-        
     )
 
 
 def make_reservation(request):
+    """
+    Display a form to fill in the required fields :model:`booking.Reservation`.
 
+    **Context**
+
+    ``reservation_form``
+        an instance of :form: booking.ReservationForm
+    **Template:**
+
+    :template:`booking/make_reservation.html`
+    """
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         if reservation_form.is_valid():
@@ -53,10 +77,10 @@ def make_reservation(request):
             reservation.user = request.user
             reservation.save()
             messages.add_message(request, messages.SUCCESS, "Yor have successfully booked!")
+            return HttpResponseRedirect(reverse("reservations"))
         else:
             messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
             reservation_form = ReservationForm()
-            #return HttpResponseRedirect(reverse("reservations"))
     reservation_form = ReservationForm()
 
     return render(
@@ -68,9 +92,21 @@ def make_reservation(request):
     )
 
 
-def edit_reservation(request, reservation_id):
-    print(reservation_id)
+def reservation_edit(request, reservation_id):
+    """
+    Display an individual reservation for edit.
+    Receives `reservation_id` and fetches the related one from databese.
 
+    **Context**
+
+    ``reservation``
+         A single reservation related to the requested user.
+    ``reservation_form``
+        an instance of :form: booking.ReservationForm
+    **Template:**
+
+    :template:`booking/edit_reservation.html`
+    """
     if request.method == "POST":
         reservation = get_object_or_404(Reservation, pk=reservation_id)
         reservation_form = ReservationForm(data=request.POST, instance=reservation)
@@ -99,8 +135,21 @@ def edit_reservation(request, reservation_id):
     )
 
 
-def delete_reservation(request, reservation_id):
+def reservation_delete(request, reservation_id):
+    """
+    Display an individual reservation for edit.
+    Receives `reservation_id` and fetches the related one from databese.
 
+    **Context**
+
+    ``reservation``
+         A single reservation related to the requested user.
+    ``reservation_form``
+        an instance of :form: booking.ReservationForm
+    **Template:**
+
+    :template:`booking/edit_reservation.html`
+    """
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     if reservation.user == request.user:
         reservation.delete()

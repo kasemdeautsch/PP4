@@ -8,9 +8,8 @@ import datetime
 
 class Reservation(models.Model):
     """
-    Stores a single reservation entry related to :model: `auth.User`
-    and :model: `blog.Post`.
-
+    Stores a single reservation entry related to :model: `auth.User`.
+    
     Attributes:
         user (foreignkey): reference to the user in the user builtin model.
         name: name of the user whow made the booking.
