@@ -4,31 +4,67 @@
     #1f7798; mid-blue
     #184f63; dark-blue
 */
+
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins&display=swap');
+
 /*Asterisc wildcard selector to override default styles in the browser */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* global styles */
+/* Fonts here taken from Mei Wong project "Code Institute"*/
+
 /* Body */
 body {
+    font-family: "Poppins", sans-serif;
     background-color:white;
 }
+
 /* Navbar */
 .navbar {
     box-shadow: 0 2px 2px #3a3a3a;
 }
 
-#cop {
-    color: white;
-    background-color: brown;
-    font-size: large;
+/* Add Menue navbar margin*/
+.home-margin {
+    margin-top: .4rem;
+}
+
+.user-loging {
+    font-size: .9rem;
+}
+
+h1,h2,
+h3 {
+    font-family: "DM Serif Display", serif;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+
+.book-button {
+    color: #fff;
+}
+
+.card-color {
+    background-color: #ffe6a7;
+}
+
+.o-brand {
+    color: red;
 }
 
 /*Footer*/
 footer {
-    background-color:#f3f5f9;
+    background-color:#f4f3ee;
     box-shadow: 0 -2px 2px #3a3a3a;
 }
 
