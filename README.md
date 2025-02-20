@@ -2,9 +2,87 @@
 Wellcome to My Bookings Wep App!
 This site is an imagin website of how a booking system would looks like,  
 it is a Full-stack, responsive WebApp and built for Education purpose.    
-The website contains a homepage with wellcome message and 
+  
+![](/static/images/main.png)
+The website contains a homepage with wellcome message and options to make booking or view  
+The current bookings, after the user login, create, edit and delete their entries.
 
-![](/media/am-i-responsive.png)
+## Overview
+
+My Bookings is a full-stack mobile-first desin working on most modern web browswes
+Built using Bootstrab and Django Framework.
+
+It allows the users to register an account and login and book their Dine with time and date
+dsiged with role-based functionality edit permissions, to give them ful CRUD functionality
+on their bookings
+
+[Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
+
+## The Agile Methodology
+The project was made using methodology of a gile as a working software and Github Issues  
+to write User stories [Here!](https://github.com/kasemdeautsch/PP4/issues).
+
+All user stories contain Acceptance Criteria and tasks to match these criteria, and some 
+were concedard as Epic as I didn't know in the beginning which task to begin, then the vision
+became to be appear as it was just a user story.
+
+Also I used the MoSCoW Prioritisations metod is putting these user stories in the track
+so that making the most important 'Must Have', 'Should Have', 'Could Have'.
+
+As the ones I didn't have the feature done in that iteration I classified them as
+'Won't Have', because the important is to have the Minimum Viable Product (MVP).  
+Scrrenshots of Project Kanban Board, Epic and user stories:
+![](/static/images/project.png)
+![](/static/images/user-stories.png)
+
+The Agile Methodology was great way to write my code and organise it according to the importance
+So that the most needed features will work first of all like registration and login,
+I didn't work with time iteration, but that way helped me using the isses and project Kanban
+and milestones as well, when moving the tssks from 'todo' to 'in progress' then 'Done'.
+
+## User Stories (UX)
+**Strategy / Site Goals**:  
+The site goal is to present an onlone Booking system that is a vailable to use from any device
+and enables them to register an account and login to watch their Bookings after providing their 
+contact details (E-mail address in this case) and have the apportunity to have full controll
+on their own Bookkings.
+<hr/>
+
+**Scope / User Stories:**  
+Here The user stories in the project will be mentioned as written and what the site users will expect from
+the website whis is translated to these user stories.
+
+The user types includes the traditional user whow will use the site to only book.
+And the Site Owner / Admin role as well also the Developer user stories will have below.
+
+As Admin/Site Owner:  
+ - As an admin I can view a list of reservations so that I can manage them. [#5](https://github.com/kasemdeautsch/PP4/issues/5)  
+ - As an Admin I can create, update, and delete reservations so that The users see their own reservations with updates. [#3](https://github.com/kasemdeautsch/PP4/issues/3)  
+
+ As a User:  
+ - As a new user I can register in the page so that I can access the reservations model. [#1](https://github.com/kasemdeautsch/PP4/issues/1)  
+ - As a registered user I can log in to my account so that edit my reservations. [#4](https://github.com/kasemdeautsch/PP4/issues/4)  
+ - As a user I can make a reservation on a specific date and time so that I can order quickly. [#2](https://github.com/kasemdeautsch/PP4/issues/2)  
+ - As a logged in user I can see all my reservations so that I can track them. [#7](https://github.com/kasemdeautsch/PP4/issues/7)  
+ - As a user I can cancel a reservation so that I can replan it. [#6](https://github.com/kasemdeautsch/PP4/issues/6)  
+ - As a user I can receive a cancellation confirmation after cancelling one reservation so that,  
+ I can know it hase been cancelled successfully. [#8](https://github.com/kasemdeautsch/PP4/issues/8)
+ - As a user I can make reservation using different devices(eg. desktop, tablet, mobile),  
+   so that I book freely. [#9](https://github.com/kasemdeautsch/PP4/issues/9)  
+ - As a user I can view all my current reservations so that I can update them. 
+ [#12](https://github.com/kasemdeautsch/PP4/issues/12)  
+
+ - As a user I can see errors when something wrong happens with booking,  
+ (eg. trying to book a table which is alredy reserved) so that I understand what the problem is. 
+  [#11](https://github.com/kasemdeautsch/PP4/issues/11)  
+ - As a user I can see available tables so that I book a reservation with a specific table. 
+ [#10](https://github.com/kasemdeautsch/PP4/issues/10) 
+
+Later on some features added by Developer that was not included in the domain but added some
+functionality to the App and give users better experience.  
+
+As a Developper:  
+- I can ...  
 
 ## Features
 
