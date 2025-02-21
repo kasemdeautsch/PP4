@@ -78,8 +78,8 @@ As Admin/Site Owner:
  - As a user I can see available tables so that I book a reservation with a specific table. 
  [#10](https://github.com/kasemdeautsch/PP4/issues/10) 
 
-Later on some features added by Developer that was not included in the domain but added some
-functionality to the App and give users better experience.  
+Later on some features added by Developer that was not included in the domain  
+but added some functionality to the App and give users better experience.  
 
 As a Developper:  
 - I can ...  
