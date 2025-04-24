@@ -39,6 +39,7 @@ body {
 .user-loging {
     font-size: .9rem;
 }
+/* Main to take all surplus space and push footer down */
 main {
     flex: 1 0 auto;
 }
@@ -71,13 +72,11 @@ footer {
 }
 
 #social-networks {
-
     text-align: center;
-    padding: 20px 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style-type: none;
-
+    margin-bottom: 0;
 }
 
 #social-networks i {
