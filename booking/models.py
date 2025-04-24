@@ -21,7 +21,7 @@ class Reservation(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="resev_user")
     name = models.CharField(max_length=50)
-    date = models.DateField(default=timezone.now)
+    date = models.DateField(default=timezone.now)# https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.DateField
     time = models.TimeField(default=timezone.now)
     email = models.EmailField(max_length=50)
     notes = models.TextField(blank=True)

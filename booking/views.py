@@ -1,5 +1,5 @@
-from django.views.generic import ListView, CreateView,TemplateView
-from django.shortcuts import render, get_object_or_404, redirect,reverse
+from django.views.generic import ListView, CreateView, TemplateView
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 #from django.http import HttpResponse
 
 from django.contrib.auth.decorators import login_required
@@ -20,8 +20,11 @@ class Home(TemplateView):
     View to render the home page
     """
     
-    print('timezone.now-->>', timezone.now().date())
+    print('timezone.now-------->>', timezone.now())
+    print('timezone.now.today-->>', timezone.now().today())
+    print('timezone.now.date-->>', timezone.now().date())
     print('timezone.now.time-->>', timezone.now().time())
+    
     print('datetime.date.today-->>', datetime.date.today())
     print('datetime.datetime.now()-->>',  datetime.datetime.now())
     print('timezone.current-->>', timezone.get_current_timezone())
@@ -122,6 +125,7 @@ def reservation_edit(request, reservation_id):
             messages.add_message(request, messages.ERROR, "Error Updating Booking!")
             reservation_form = ReservationForm()
             return HttpResponseRedirect(reverse("reservations"))
+            #return redirect(reverse('reservations'))
 
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     reservation_form = ReservationForm(instance=reservation)

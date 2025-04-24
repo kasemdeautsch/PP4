@@ -83,3 +83,10 @@ footer {
     padding: 5%;
     color: #3a3a3a;
 }
+
+/* Media queries*/
+@media screen and (min-width: 576px) {
+    .user-loging {
+        margin-bottom: 0;
+    }
+}
