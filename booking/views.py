@@ -49,6 +49,7 @@ def reservation_list(request):
     :template:`booking/reservation_list.html`
     """
     user = get_object_or_404(User, username=request.user)
+    #print('User:', user)
     reservations = Reservation.objects.filter(user=user).order_by('-date')
     reservations_count = reservations.count()
     return render(
@@ -83,7 +84,7 @@ def make_reservation(request):
             return HttpResponseRedirect(reverse("reservations"))
         else:
             messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
-            reservation_form = ReservationForm()
+            #reservation_form = ReservationForm()
     reservation_form = ReservationForm()
 
     return render(
