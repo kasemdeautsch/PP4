@@ -18,9 +18,9 @@ if os.path.isfile('env.py'):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-print('BASE_DIR ', BASE_DIR)
+#print('BASE_DIR ', BASE_DIR)
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-print('TEMPLATES_DIR ', TEMPLATES_DIR)
+#print('TEMPLATES_DIR ', TEMPLATES_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -34,7 +34,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['8000-kasemdeautsch-pp4-rol7zn3brnf.ws.codeinstitute-ide.net',
                  '127.0.0.1',
-                 '.herokuapp.com']
+                 'localhost',
+                 '.herokuapp.com'
+                 ]
 
 # Application definition
 

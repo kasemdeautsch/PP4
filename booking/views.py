@@ -20,16 +20,19 @@ class Home(TemplateView):
     View to render the home page
     """
     
-    print('timezone.now-------->>', timezone.now())
-    print('timezone.now.today-->>', timezone.now().today())
-    print('timezone.now.date-->>', timezone.now().date())
-    print('timezone.now.time-->>', timezone.now().time())
+    #print('timezone.now-------->>', timezone.now())
+    #print('timezone.now.today-->>', timezone.now().today())
+    #print('timezone.now.date-->>', timezone.now().date())
+    #print('timezone.now.time-->>', timezone.now().time())
+    #print('timezone.datetime-->>', timezone.datetime(1,2,3))
+    #print('timezone.datetime-->>', datetime.date(2012,11,1))
+    #print('timezone.current-->>', timezone.get_current_timezone())
+    #print('---------------------------------')
+    #print('datetime.date.today-->>', datetime.date.today())
+    #print('datetime.datetime.now()-->>',  datetime.datetime.now())
+    #print('datetime.datetime.now()-->>',  datetime.datetime.now().strftime("%H:%M:%S"))
+    #print('---------------------------------')
     
-    print('datetime.date.today-->>', datetime.date.today())
-    print('datetime.datetime.now()-->>',  datetime.datetime.now())
-    print('timezone.current-->>', timezone.get_current_timezone())
-    print('timezone.datetime-->>', timezone.datetime(1,2,3))
-    print('timezone.datetime-->>', datetime.date(2012,11,1))
     
     template_name = "booking/index.html"
 
@@ -76,7 +79,14 @@ def make_reservation(request):
     """
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
+        print("form-before: ")
         if reservation_form.is_valid():
+            print('---------------------------------')
+            print('1--data:', reservation_form.data)
+            print('1--cleaned-data:', reservation_form.cleaned_data)
+            print('1--date: ', reservation_form.cleaned_data['date'], 'type', type(reservation_form.cleaned_data['date']))
+            print('1--time: ', reservation_form.cleaned_data['time'], 'type', type(reservation_form.cleaned_data['time']))
+            print('---------------------------------')
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
@@ -85,6 +95,12 @@ def make_reservation(request):
         else:
             messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
             #reservation_form = ReservationForm()
+        print('---------------------------------')
+        print('2--data:', reservation_form.data)
+        print('2--cleaned-data:', reservation_form.cleaned_data)
+        
+
+        print('---------------------------------')
     reservation_form = ReservationForm()
 
     return render(
