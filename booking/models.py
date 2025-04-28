@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import date
 from datetime import time
-
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
 # Create your models here.
 values = (
     (time(9, 0), "09:00"), (time(9, 30), "09:30"),
@@ -15,6 +16,10 @@ values = (
     (time(19, 0), "19:00"), (time(19, 30), "19:30"),
     (time(20, 0), "20:00"), (time(20, 30), "20:30"),
 )
+
+
+
+
 
 class Reservation(models.Model):
     """

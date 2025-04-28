@@ -100,8 +100,10 @@ def make_reservation(request):
         print('2--cleaned-data:', reservation_form.cleaned_data)
         
 
+    
         print('---------------------------------')
-    reservation_form = ReservationForm()
+    else:
+        reservation_form = ReservationForm()
 
     return render(
         request,

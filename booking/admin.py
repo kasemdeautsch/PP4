@@ -11,7 +11,7 @@ class ReservationAdminForm(forms.ModelForm):
     With a function to clean the time field by applying the 'strptime' method.
     """
     time = forms.ChoiceField(choices=Reservation.time.field.choices, widget=forms.Select)
-    print('>>>>Reservation.time.field.choices: ', Reservation.time.field.choices)
+    #print('>>>>Reservation.time.field.choices: ', Reservation.time.field.choices)
     
     class Meta:
         model = Reservation
@@ -28,6 +28,7 @@ class ReservationAdminForm(forms.ModelForm):
         for time_obj, display in Reservation.time.field.choices:
             print('clean_time:', time_obj, 'with', tt, 'equal:', time_obj == tt)
             if time_obj == tt:
+
                 return time_obj
         raise forms.ValidationError(f"Invalid time choice: {tt}")
 

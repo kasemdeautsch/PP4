@@ -103,6 +103,7 @@
       <div class="row">
         <div class="col-md-8 offset-md-2">
           {% for message in messages %}
+          <p>{{ reservation_form.non_field_errors }}</p>
           <div
             class="alert {{ message.tags }} alert-dismissible fade show"
             id="msg"
