@@ -17,23 +17,8 @@ import datetime
 
 class Home(TemplateView):
     """
-    View to render the home page
+    Class-based View to render the home page
     """
-    
-    #print('timezone.now-------->>', timezone.now())
-    #print('timezone.now.today-->>', timezone.now().today())
-    #print('timezone.now.date-->>', timezone.now().date())
-    #print('timezone.now.time-->>', timezone.now().time())
-    #print('timezone.datetime-->>', timezone.datetime(1,2,3))
-    #print('timezone.datetime-->>', datetime.date(2012,11,1))
-    #print('timezone.current-->>', timezone.get_current_timezone())
-    #print('---------------------------------')
-    #print('datetime.date.today-->>', datetime.date.today())
-    #print('datetime.datetime.now()-->>',  datetime.datetime.now())
-    #print('datetime.datetime.now()-->>',  datetime.datetime.now().strftime("%H:%M:%S"))
-    #print('---------------------------------')
-    
-    
     template_name = "booking/index.html"
 
 
@@ -52,7 +37,6 @@ def reservation_list(request):
     :template:`booking/reservation_list.html`
     """
     user = get_object_or_404(User, username=request.user)
-    #print('User:', user)
     reservations = Reservation.objects.filter(user=user).order_by('-date')
     reservations_count = reservations.count()
     return render(
@@ -94,14 +78,13 @@ def make_reservation(request):
             return HttpResponseRedirect(reverse("reservations"))
         else:
             messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
-            #reservation_form = ReservationForm()
         print('---------------------------------')
         print('2--data:', reservation_form.data)
         print('2--cleaned-data:', reservation_form.cleaned_data)
-        
-
-    
         print('---------------------------------')
+        print("------Errors", reservation_form.errors)
+        print("------Errors>>", reservation_form.errors.as_json())
+
     else:
         reservation_form = ReservationForm()
 
@@ -116,7 +99,7 @@ def make_reservation(request):
 
 def reservation_edit(request, reservation_id):
     """
-    Display an individual reservation for edit.
+    Display an individual reservation for edit :model:`booking.Reservation`.
     Receives `reservation_id` and fetches the related one from databese.
 
     **Context**
@@ -142,13 +125,12 @@ def reservation_edit(request, reservation_id):
             
         else:
             messages.add_message(request, messages.ERROR, "Error Updating Booking!")
-            reservation_form = ReservationForm()
-            return HttpResponseRedirect(reverse("reservations"))
+            #reservation_form = ReservationForm()
+            #return HttpResponseRedirect(reverse("reservations"))
             #return redirect(reverse('reservations'))
-
-    reservation = get_object_or_404(Reservation, pk=reservation_id)
-    reservation_form = ReservationForm(instance=reservation)
-
+    else:
+        reservation = get_object_or_404(Reservation, pk=reservation_id)
+        reservation_form = ReservationForm(instance=reservation)
     return render(
         request,
         "booking/edit_reservation.html",
@@ -160,8 +142,9 @@ def reservation_edit(request, reservation_id):
 
 def reservation_delete(request, reservation_id):
     """
-    Display an individual reservation for edit.
-    Receives `reservation_id` and fetches the related one from databese.
+    Display an individual reservation for edit :model:`booking.Reservation`.
+    receives `reservation_id` and fetches the related one from databese.
+    then deletes it.
 
     **Context**
 
@@ -178,7 +161,7 @@ def reservation_delete(request, reservation_id):
         reservation.delete()
         messages.add_message(request, messages.SUCCESS, "Booking deleted Successfully")
     else:
-        messages.add_message(request, messages.SUCCESS, "Error! You can only delete your own Booking.")
+        messages.add_message(request, messages.ERROR, "Error! You can only delete your own Booking.")
     return HttpResponseRedirect(reverse("reservations"))
 
 

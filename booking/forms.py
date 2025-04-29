@@ -1,6 +1,7 @@
 from django import forms
 from .models import Reservation
 from datetime import datetime, time, date, timedelta
+import string
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
@@ -15,17 +16,19 @@ values = (
     (time(19, 0), "19:00"), (time(19, 30), "19:30"),
     (time(20, 0), "20:00"), (time(20, 30), "20:30"),
 )
+
+"""
 def validate_name(value):
     print('---validate_name begins:')
-    if len(value) < 3:
+    if not value.startswith(tuple(string.ascii_letters)):
+        
         print('---validate_name Ends:')
-        
-        
         raise forms.ValidationError(
-            _('%(value)s not allowed'),
+            _('%(value)s not allowed!, name must start with letters only'),
             params={'value': value},
             )
-        
+
+"""
 class ReservationForm(forms.ModelForm):
     """
     Form to render in the template with choices list of times applied on
@@ -33,7 +36,7 @@ class ReservationForm(forms.ModelForm):
 
     """
     time = forms.ChoiceField(choices=values, widget=forms.Select)
-   
+    
     class Meta:
         """
         Meta class using the :model: `Booking.Reservation`.
@@ -61,20 +64,20 @@ class ReservationForm(forms.ModelForm):
     
     def clean_date(self):
         """
-        Function to check if the date chosed is within a period of one month, 
-        raises error if it is not in the period.
+        Function to check if the chosen date is within a period of one month, 
+        raises error if it is not whtin that period.
         """
         today = date.today()
         after_one_month = today + timedelta(days=30)
         new_date = self.cleaned_data.get('date')
         #print('date: ', new_date)
         if new_date >= today and new_date <= after_one_month:
-            print("Passed!!")
+            #print("Passed!!")
             return new_date
-        print("Error!!")
+        #print("Error!!")
         raise forms.ValidationError(
             f"Please enter a date within one month({today} to {after_one_month})"
         )
-        
+    
 
     

@@ -5,6 +5,8 @@ from datetime import date
 from datetime import time
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
+import string
+
 # Create your models here.
 values = (
     (time(9, 0), "09:00"), (time(9, 30), "09:30"),
@@ -16,18 +18,25 @@ values = (
     (time(19, 0), "19:00"), (time(19, 30), "19:30"),
     (time(20, 0), "20:00"), (time(20, 30), "20:30"),
 )
-
-
-
-
-
+def validate_name(value):
+    """
+    Validator to check if namefield starts with letters,
+    raises error if it starts with other characters like numbers or daches or (',._7/')
+    """
+    if not value.startswith(tuple(string.ascii_letters)):
+        raise ValidationError(
+            _('%(value)s not allowed!, name must start with letters only..'),
+            params={'value': value},
+            )
+    
+    
 class Reservation(models.Model):
     """
     Stores a single reservation entry related to :model: `auth.User`.
     
     Attributes:
         user (foreignkey): reference to the user in the user builtin model.
-        name: name of the user whow made the booking.
+        name: name of the user who made the booking.
         date: the date of the booking.
         time: time of the booking, with choices to chose from
         email: email address to contact.
@@ -35,7 +44,7 @@ class Reservation(models.Model):
     """
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="resev_user")
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, validators=[validate_name])
     date = models.DateField(default=date.today)  # https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.DateField
     time = models.TimeField(choices=values)
     email = models.EmailField(max_length=200)
