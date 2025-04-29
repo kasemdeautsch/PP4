@@ -39,7 +39,10 @@ body {
 .user-loging {
     font-size: .9rem;
 }
-
+/* Main to take all surplus space and push footer down */
+main {
+    flex: 1 0 auto;
+}
 h1,h2,
 h3 {
     font-family: "DM Serif Display", serif;
@@ -69,17 +72,24 @@ footer {
 }
 
 #social-networks {
-
     text-align: center;
-    padding: 20px 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style-type: none;
-
+    margin-bottom: 0;
 }
 
 #social-networks i {
     font-size: 150%;
     padding: 5%;
     color: #3a3a3a;
+}
+
+/* Media queries*/
+/* Remove margin from bottom of login paragraph on medium screens*/
+/* @media (min-width: 1200px) { */
+@media screen and (min-width: 768px) {
+    .user-loging {
+        margin-bottom: 0;
+    }
 }

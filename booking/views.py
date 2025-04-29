@@ -145,7 +145,7 @@ def reservation_delete(request, reservation_id):
     Display an individual reservation for edit :model:`booking.Reservation`.
     receives `reservation_id` and fetches the related one from databese.
     then deletes it.
-
+    
     **Context**
 
     ``reservation``
@@ -159,7 +159,7 @@ def reservation_delete(request, reservation_id):
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     if reservation.user == request.user:
         reservation.delete()
-        messages.add_message(request, messages.SUCCESS, "Booking deleted Successfully")
+        messages.add_message(request, messages.SUCCESS, "Booking deleted Successfully!")
     else:
         messages.add_message(request, messages.ERROR, "Error! You can only delete your own Booking.")
     return HttpResponseRedirect(reverse("reservations"))
