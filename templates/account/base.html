@@ -12,7 +12,7 @@
     {% block body %}
 
     {% if messages %}
-    <div>
+    <div>{% blocktrans %}
       <strong>{% trans "Messages:" %}</strong>
       <ul>
         {% for message in messages %}

@@ -25,14 +25,15 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>Web Booking</title>
+    <title>ML.Booking</title>
   </head>
   <body class="d-flex flex-column h-100 main-bg">
+    <!-- Idea from Blog post project -->
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md bg-body-tertiary">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}"
-          >B<span class="o-brand">oo</span>kings</a
+          >ML.B<span class="o-brand">oo</span>kings</a
         >
         <button
           class="navbar-toggler"
@@ -139,6 +140,7 @@
       <!-- Form to edit reservations -->
       {% endblock %}
     </main>
+    <!-- Idea from previous project -->
     <!-- Footer -->
     <footer class="container-fluid footer py-3">
       <div class="row">

@@ -1,5 +1,5 @@
-# My Bookings!
-Wellcome to My Bookings Wep App!
+# ML.Bookings!
+Wellcome to my Bookings Wep App!
 This site is an imagin website of how a booking system would looks like,  
 it is a Full-stack, responsive WebApp and built for Education purpose.    
   
@@ -9,12 +9,12 @@ The current bookings, after the user login, create, edit and delete their entrie
 
 ## Overview
 
-My Bookings is a full-stack mobile-first desin working on most modern web browswes
+ML.Bookings is a full-stack mobile-first desin working on most modern web browswes\
 Built using Bootstrab and Django Framework.
 
-It allows the users to register an account and login and book their Dine with time and date
-dsiged with role-based functionality edit permissions, to give them ful CRUD functionality
-on their bookings
+It allows the users to register an account and login and book their Dine with time and date\
+desiged with role-based functionality edit permissions, to give them full CRUD functionality\
+on their bookings.
 
 [Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
 
@@ -22,42 +22,48 @@ on their bookings
 The project was made using methodology of a gile as a working software and Github Issues  
 to write User stories [Here!](https://github.com/kasemdeautsch/PP4/issues).
 
-All user stories contain Acceptance Criteria and tasks to match these criteria, and some 
-were concedard as Epic as I didn't know in the beginning which task to begin, then the vision
+All user stories contain Acceptance Criteria and tasks to match these criteria, and some
+were concedard as Epic,\
+As I didn't know in the beginning which task to begin, then the vision
 became to be appear as it was just a user story.
 
-Also I used the MoSCoW Prioritisations metod is putting these user stories in the track
-so that making the most important 'Must Have', 'Should Have', 'Could Have'.
+Also I used the MoSCoW Prioritisations method in putting these user stories in the track
+so that making the most important\
+'Must Have', 'Should Have', 'Could Have', 'Wont Have'.
 
-As the ones I didn't have the feature done in that iteration I classified them as
-'Won't Have', because the important is to have the Minimum Viable Product (MVP).  
+As the ones I didn't have the feature done in that iteration I classified them as "Won't Have"\
+because the important is to have the Minimum Viable Product (MVP).  
 Scrrenshots of Project Kanban Board, Epic and user stories:
 ![](/static/images/project.png)
 ![](/static/images/user-stories.png)
 
-The Agile Methodology was great way to write my code and organise it according to the importance
-So that the most needed features will work first of all like registration and login,
-I didn't work with time iteration, but that way helped me using the isses and project Kanban
-and milestones as well, when moving the tssks from 'todo' to 'in progress' then 'Done'.
+The Agile Methodology was great way to write my code and organise it according to the importance\
+So that the most needed features will work first of all like registration and login,\
+I didn't work with time iteration, but that way helped me using the isses and project Kanban\
+and milestones as well, when moving the tasks from 'todo' to 'in progress' then 'Done'\
+Lastly some user stories couldn't make it and moved to "wont have" in Backlog.
 
 ## User Stories (UX)
 **Strategy / Site Goals**:  
-The site goal is to present an onlone Booking system that is a vailable to use from any device
-and enables them to register an account and login to watch their Bookings after providing their 
-contact details (E-mail address in this case) and have the apportunity to have full controll
-on their own Bookkings.
+The site goal is to present an online Booking system that is a vailable to use from any device\
+and enables users and guests to register an account and login to watch their Bookings\
+after providing their contact details (E-mail address in this case) and have the apportunity\
+to have control on their own Bookkings.
 <hr/>
 
 **Scope / User Stories:**  
-Here The user stories in the project will be mentioned as written and what the site users will expect from
-the website whis is translated to these user stories.
+With The user stories in the project mentioned as written and what the site users\
+will expect from the website which is translated to these user stories.\
+The content and features will come to live in later sections.
 
-The user types includes the traditional user whow will use the site to only book.
-And the Site Owner / Admin role as well also the Developer user stories will have below.
+
+The user types includes the traditional user who will use the site to only book.\
+And the Site Owner / Admin role and the Developer user stories will have below.
 
 As Admin/Site Owner:  
  - As an admin I can view a list of reservations so that I can manage them. [#5](https://github.com/kasemdeautsch/PP4/issues/5)  
- - As an Admin I can create, update, and delete reservations so that The users see their own reservations with updates. [#3](https://github.com/kasemdeautsch/PP4/issues/3)  
+ - As an Admin I can create, update, and delete reservations so that The users see their own\
+ reservations with updates. [#3](https://github.com/kasemdeautsch/PP4/issues/3)  
 
  As a User:  
  - As a new user I can register in the page so that I can access the reservations model. [#1](https://github.com/kasemdeautsch/PP4/issues/1)  
@@ -82,7 +88,48 @@ Later on some features added by Developer that was not included in the domain
 but added some functionality to the App and give users better experience.  
 
 As a Developper:  
-- I can ...  
+- As an Admin I can Add fav-icons on the website tab so that the appearance of the site looks good and draw the guest's attention.[#13](https://github.com/kasemdeautsch/PP4/issues/13).
+
+**Structure / (layout, user-flow)**  
+The website uses a consistence layout and few colours with responsivness on most known breakpoints.\
+Navigation will be on top of the site with links to registration, login and logout displayed as burger menu on mobile\
+and expanded on larger screens.
+
+Main page will be in a card wellcome message, with buttons to manage resrvations for authorised users\
+or asking them login/register to use the site.
+
+Make Booking page will present a nice form for the user to make a booking with the needed fields and
+some buttons.\
+Edit Booking page will show the asked booking to edit and update.
+
+We need fields like name, date, time,... to make the booking.\
+Delete Booking page will show a "Modal" to warn the user and confirm if he is agree.
+
+The Registration and Authintication pages are simple and describe their function clearly.
+
+The Footer is displayed sticky on buttom and contains the different links for social media contacts and displayed in a new tab.\
+The Header and Footer are the same for all pages.\
+All pages use the same color (light broun) for consistency.
+
+To accomplish the features needed, we need the following attributes:
++ user
++ name
++ date
++ time
++ emeil (for confirmation).
++ notes for any...
+
+
+Database table:  
+
+![](/static/images/erd.png)
+
+**Skelton / Wireframes:**\
+An initial design of the layout done by drawing the layout on paper and then using the "Balsamiq" translated
+to a "mockup", this helped in Brainstorming me to imagine how the key contents will be placed and how the user
+will interact with them.
+
+
 
 ## Features
 

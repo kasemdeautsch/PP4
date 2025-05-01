@@ -3,8 +3,6 @@
 {% block make %}
 <!-- Form in a Boostrap column to Book a reservation-->
 <div class="container">
-  <p>{{ reservation_form.non_field_errors }}</p>
-     {{ form.non_field_errors }}
   <div class="row">
     <div class="col-md-10 col-lg-8">
       <form
@@ -14,7 +12,6 @@
         action=""
       >
         <h3 class="card-title pb-2">Make Booking:</h3>
-        <p>{{ reservation_form.non_field_errors }}</p>
         <div class="p-3">{{ reservation_form | crispy}}</div>
 
         {% csrf_token %}

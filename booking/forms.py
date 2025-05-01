@@ -42,7 +42,7 @@ class ReservationForm(forms.ModelForm):
         Meta class using the :model: `Booking.Reservation`.
         """
         model = Reservation
-        fields = ('name', 'email', 'date', 'time', 'notes',)
+        fields = ('name',  'date', 'time', 'email', 'notes',)
     
     def clean_time(self):
         """

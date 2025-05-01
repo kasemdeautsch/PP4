@@ -14,10 +14,13 @@
           {% if reservations_count == 0 %}
           <p>You have no Bookings!</p>
           {% else %} 
+          <!-- Loop over the reservations in the database to display it -->
+           <!-- The reservations are related to a specific user and was checked in the view -->
           {% for reservation in reservations %}
           <p class="card-text mb-4" id="reservation{{ reservation.id}}">
             {{ reservation }}
           </p>
+          <!-- Only display the buttons to the correct user -->
           {% if user.is_authenticated and reservation.user == request.user %}
           <button
             class="btn btn-warning me-3 mb-3 btn-delete"

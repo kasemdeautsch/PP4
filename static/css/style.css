@@ -65,6 +65,10 @@ p {
     color: red;
 }
 
+form.signup p > label {
+    display: block;
+}
+
 /*Footer*/
 footer {
     background-color:#f4f3ee;
@@ -91,5 +95,10 @@ footer {
 @media screen and (min-width: 768px) {
     .user-loging {
         margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 500px) {
+    form.signup p > label {
+        display: inline-block;
     }
 }
