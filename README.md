@@ -89,8 +89,9 @@ but added some functionality to the App and give users better experience.
 
 As a Developper:  
 - As an Admin I can Add fav-icons on the website tab so that the appearance of the site looks good and draw the guest's attention.[#13](https://github.com/kasemdeautsch/PP4/issues/13).
+<hr/>
 
-**Structure / (layout, user-flow)**  
+**Structure / (Organization, user-flow):**  
 The website uses a consistence layout and few colours with responsivness on most known breakpoints.\
 Navigation will be on top of the site with links to registration, login and logout displayed as burger menu on mobile\
 and expanded on larger screens.
@@ -123,11 +124,65 @@ To accomplish the features needed, we need the following attributes:
 Database table:  
 
 ![](/static/images/erd.png)
+<hr/>
 
-**Skelton / Wireframes:**\
+**Skeleton / Wireframes-Prototype:**\
 An initial design of the layout done by drawing the layout on paper and then using the "Balsamiq" translated
 to a "mockup", this helped in Brainstorming me to imagine how the key contents will be placed and how the user
 will interact with them.
+
+**<u>Balsamiq Wireframes:</u>**
+
+**Home Page**
+
+![](/static/images/wireframes/home-mobile.png)\
+![](/static/images/wireframes/home-desktop.png)\
+
+**Booking List Page**
+
+![](/static/images/wireframes/bookings-mobile.png)\
+![](/static/images/wireframes/bookings-desktop.png)\
+
+**Edit Bookings Page**
+
+![](/static/images/wireframes/edit-mobile.png)\
+![](/static/images/wireframes/edit-desktop.png)\
+
+
+**Make Bookings Page**
+
+![](/static/images/wireframes/make-mobile.png)\
+![](/static/images/wireframes/make-desktop.png)\
+
+**Signin Page**
+
+![](/static/images/wireframes/signin-mobile.png)\
+![](/static/images/wireframes/signin-desktop.png)\
+
+**Signup Page**
+
+![](/static/images/wireframes/signup-mobile.png)\
+![](/static/images/wireframes/signup-desktop.png)\
+
+**Signout Page**
+
+![](/static/images/wireframes/signout-mobile.png)\
+![](/static/images/wireframes/signout-desktop.png)
+
+The **Delete Booking** page will load a modal for confirmation.
+<hr/>
+
+**Surface / Design choices:**  
+The visual look of the website is simple:  
++ Color Scheme:\
+  I used the white and black colors for most text and backgrounds, the colors (red,green yellow, blue)\
+  used for buttons from bootstrab classes:
+  ![](/static/images/wireframes/color-schem.png)
+  The Footer and Header have the same color which is "bg-body-tertiary" from Bootstrap.
++ Typography:
+  Poppins and sans-serif fonts were used in this site.
+
+  <hr/>
 
 
 
