@@ -214,31 +214,68 @@ The visual look of the website is simple:
     - It leads to external links for social media for contacting.
       ![](/static/images/features/desktop-header2.png)
 
-- Landing page:
+- Landing page:  
   The landing page is a wellcome message that takes less than the full page size.
   - It changes according to the user state.
   - For logged-in users it displayes a button to show all bookings related to this user,  
-    and another to book for a meal.
+    and another one to book for a meal.
   - When not loggedin user visit he will be asked to login to book for a meal.
+  - Added new feature to enable user to sign in direct from within the wellcome message.
 
     ![](/static/images/features/landing.png)
 
     ![](/static/images/features/landing2.png)
 
-- Register:
+- Register:  
   The site provides a full responsive page for users to register an account.
-  - It can ba accesed from the navigation bar or as a link in the sign in page.
+  - It can be accessed from the navigation bar or as a link in the sign in page.
   - The registration pege is a responsive form.
-  - It uses Django-allauth with settings for authentication with the fields:
-    - Username
-    - Email(optional)
-    - Password(repeat)
+  - It uses Django-allauth and settings for authentication with the fields:
+    - Username.
+    - Email(optional).
+    - Password.
+    - Password(repeat).
   - There is a button to signup using bootstrap effects with a hover over.
-  - After registration the user in redirected to the main page.
+  - After registration the user is redirected to the main page.
 
     ![](/static/images/features/desktop-register.png)
 
     ![](/static/images/features/mobile-register.png)
+
+- Login:  
+  The login page is full responsive and can be accessed from the navbar on top.
+  - It is accessed also from the main page if the user not logged in or from sign up page.
+  - It uses Django-allauth and settings for authentication with the fields:
+    - Username.
+    - Password.
+  - There is a button to sign in using bootstrap effects with a hover over.
+  - After signing in the user is redirected to the main page.
+  - A message shows after a successfull login under the navbar.
+
+    ![](/static/images/features/mobile-signin.png)
+
+    ![](/static/images/features/desktop-signin.png)
+
+    ![](/static/images/features/signin-message.png)
+
+- Logout:  
+  The website provides a functionality for the logged-in users to logout.
+  - The logout page is resposive.
+  - It warns the user before logging out.
+  - It can be accessed from the navbar only.
+  - It is available only for logged-in users.
+  - There is a button to signout using bootstrap effects with a hover over.
+  - A message shows after logout under the navbar.
+
+  ![](/static/images/features/signout.png)
+
+  ![](/static/images/features/signout-message.png)
+
+The register, login and logout pages are consistent and have the same look and appearance.
+
+- Make Booking:
+  The "make booking" page is a full responsive form and enables users to book for a meal.
+  - It is available only when user in logged in.
 
 
 **Features Left to Implement**
