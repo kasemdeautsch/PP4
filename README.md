@@ -190,32 +190,56 @@ The visual look of the website is simple:
 
 **Existing Features**
 
-- Navigation Bar
-  - Featured at the top of the page for all pages, with
-    links to the main page (Home) and otherpages.
-  - The other navigations to the right: Home, History, Gallery, Contacts, and all linking to 
-    different pages of the website.
-  - The navigation is in a color that contrasts with the background.
-  - The navigation shows clearly the name of the website to make it easy to navigate the other
-    pages.
-    ![](/media/header.png)
-- The Header
-  - The Header contains the Navigation Bar and the logo which is a Heading with the site name: SYRIA HOME 
-   on the left which leads to landing home page, and the rest links to the right.
-- The footer
-  - The footer includes links to the social media sites which should lead to social media chanels of this 
-      website, The links will open to a new tab to allow easy navigation for the user.
-  - The value of the footer is that it encourages users to keep connected via social media.
-     ![](/media/footer.png)
-- The Gallery
-  - the gallery page displays photos of most cities in Syria and the most sites that people visits.
-  - The page is usefull so that it contains the places that can the visitor visits when he is there.
-    ![](/media/gallery.png)
-- The Signup page
-  - this page allows the user to sign up to the website so that they become a member.
-      for further informations.
-  - It aquires the user to enter his email address and full name.
-    ![](/media/signup.png)
+- Navigation Bar:  
+  Featured at the top of the page for all pages, with
+  links to the home page and other pages.
+  The Navbar is full-responsive and contains:
+  - Hamburger button on mobile expands to show links to login/out and home page
+  - Brand name styled and connect to home page
+  - Expanded Navbar on desktop shows links to the authentication and home pages
+  - The current logged in user in the right corner or a "not logged in" in case the user not logged in.
+  - Relative link to "Logout" if the user is logged in or "Login" and "Register" when not logged in.
+  - The links make it easy for the user to navigate freely from page to page without need to go back to\
+    the previous page.  
+    ![](/static/images/features/mobile-header.png)
+
+    ![](/static/images/features/mobile-header-full.png)
+
+    ![](/static/images/features/desktop-header.png)
+
+    ![](/static/images/features/desktop-header2.png)
+
+- Footer:  
+  The footer is full responsive and placed at the buttom and repeated on all pages to allow consistence look.    
+    - It leads to external links for social media for contacting.
+      ![](/static/images/features/desktop-header2.png)
+
+- Landing page:
+  The landing page is a wellcome message that takes less than the full page size.
+  - It changes according to the user state.
+  - For logged-in users it displayes a button to show all bookings related to this user,  
+    and another to book for a meal.
+  - When not loggedin user visit he will be asked to login to book for a meal.
+
+    ![](/static/images/features/landing.png)
+
+    ![](/static/images/features/landing2.png)
+
+- Register:
+  The site provides a full responsive page for users to register an account.
+  - It can ba accesed from the navigation bar or as a link in the sign in page.
+  - The registration pege is a responsive form.
+  - It uses Django-allauth with settings for authentication with the fields:
+    - Username
+    - Email(optional)
+    - Password(repeat)
+  - There is a button to signup using bootstrap effects with a hover over.
+  - After registration the user in redirected to the main page.
+
+    ![](/static/images/features/desktop-register.png)
+
+    ![](/static/images/features/mobile-register.png)
+
 
 **Features Left to Implement**
 - This website is basic and ment to be more developed and contains several media and content
