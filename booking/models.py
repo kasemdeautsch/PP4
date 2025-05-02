@@ -20,12 +20,12 @@ values = (
 )
 def validate_name(value):
     """
-    Validator to check if namefield starts with letters,
-    raises error if it starts with other characters like numbers or daches or (',._7/')
+    Validator to check if namefield contain only letters,
+    raises error if it has other characters like numbers or spaces.
     """
-    if not value.startswith(tuple(string.ascii_letters)):
+    if not value.isalpha():
         raise ValidationError(
-            _('%(value)s not allowed!, name must start with letters only..'),
+            _('%(value)s is not allowed!, name can contain only letters and no spaces.'),
             params={'value': value},
             )
     
