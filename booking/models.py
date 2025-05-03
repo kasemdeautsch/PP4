@@ -4,6 +4,7 @@ from django.utils import timezone
 from datetime import date
 from datetime import time
 from django.core.exceptions import ValidationError
+from django.core .validators import MaxLengthValidator
 from django.utils.translation import gettext_lazy as _
 import string
 
@@ -48,7 +49,7 @@ class Reservation(models.Model):
     date = models.DateField(default=date.today)  # https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.DateField
     time = models.TimeField(choices=values)
     email = models.EmailField(max_length=200)
-    notes = models.TextField(blank=True, null=True)
+    notes = models.TextField(blank=True, null=True, validators=[MaxLengthValidator(600)])
 
     class Meta():
         """
