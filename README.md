@@ -272,15 +272,152 @@ The visual look of the website is simple:
   ![](/static/images/features/signout-message.png)
 
 The register, login and logout pages are consistent and have the same look and appearance.
+- **CRUD Functionality**  
+  The website gives the users a full functionality on their own bookings to:  
+  Create, Read, Update and Delete.
 
-- Make Booking:
+- Make Booking:  
   The "make booking" page is a full responsive form and enables users to book for a meal.
   - It is available only when user in logged in.
+  - All Fields will validate the entry and show a descriptive message below when exist.
+  - The name field accepts only letters with no spaces.
+
+    ![](/static/images/features/name-error.png)
+
+  - The date field has validation that accepts bookings within one month only,  
+    it doesn't take past days like yesterday.
+
+    ![](/static/images/features/date-error.png)
+
+  - The time field has choices with the allowed timings to avoid un wanted options.
+
+    ![](/static/images/features/time-choices.png)
+
+  - The email field will validate to a correct email format.
+
+    ![](/static/images/features/email-error.png)
+
+  - The notes field has a validation to take text not longer than 600 characters.
+
+    ![](/static/images/features/notes-error.png)
+  
+  - A general message will display over the form  shows if thre are errors in the operation:
+
+    ![](/static/images/features/all-error.png)
+
+  - The user has tow options in this page, either save the current transaction or go back  
+    to home page when he wants to cancel the operation for any reason.
+
+    ![](/static/images/features/back.png)
+
+  - If the whole operation is valid a message will show that it was successfull and the user  
+    will be redirected to the bookings page.
+
+    ![](/static/images/features/success.png)
+
+  - List of bookings:  
+    The users can see their own Bookings by clicking the "My Bookings" button on the main page
+    - Only the bookings related to the user currently logged in will show.
+
+      ![](/static/images/features/landing2.png)
+
+- Edit Booking:  
+  The users can edit their own bookings by clicking the "Edit Booking" button.
+  - When clicked the Booking page with the form appears.
+  - The system will show the transaction which is saved in the database with all fields.
+  - The booking will show in a new page.
+  - The user updates the required fields and when satisfied will click the "Update" button.
+  - The user can cancel the operation by clicking the "Back" button.
+
+    ![](/static/images/features/edit-booking.png)
+
+- Delete Booking:  
+  The site provide a delete functionality by clicking the "Delete booking" button.
+  - When clicked a modal will appear to warn the user.
+  - User can confirm that by clicking the "Delete" button again.
+  - User can cancel that by clicking the "close" button or "X".
+  - If deleted, the booking will be erased from the databeas.
+  - The user is redirected to the bookings page.
+  - A message of successfully deletion will show.
+
+    ![](/static/images/features/delete-modal.png)
+
+    ![](/static/images/features/success-delete.png)
+
+- Admin Panel:  
+  The website provides the owner a way to access the database tables using the Django admin panel.  
+  The Django admin panel is granted to the Suberuser who has credentials to access the admin page.  
+  A number of customization is done by customizing the "Admin" page.  
+
+  - The admin panel accessed by appending /admin/ to the end of the url in the URL bar.
+  - the Superuser used as "Username" with the "Password" granted.
+  - The other users with "staff" status cann't access the admin page.
+  - Only the Superuser can access thae admin panel.
+  - The admin panel lists all apps installed for "Authenticatin and Authorization" and "Booking".
+  - The users and groups under "Authenticatin and Authorization" can be edited and changed.  
+    by the owner who has the Superuser credentials.
+  - The reservations model shows under the "Booking" app.
+  - Reservations can be filtered by date or name, or searched by name.
+  - The Superuser has full CRUD functionality to edit, update and delete the transactions.  
+  - The time in the admin panel also has the same choices on time field which is  
+    in the form for consistency
+    
+    ![](/static/images/features/admin-login.png)
+
+    ![](/static/images/features/reservations.png)
+
+    ![](/static/images/features/admin-edit.png)
 
 
 **Features Left to Implement**
-- This website is basic and ment to be more developed and contains several media and content
-  however I hadn't more time.
+- I intend to expand the website to have the opportunity to reserve a table along with the booking.  
+- The time choices don't check the current time to disallow booking in the past.  
+- Customer feedback like review is intended to be considered in the future.  
+- Forget password also is not present in this version.
+
+
+## Technologies used
+
+**Languages**
+
+- [HTML5](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/css_intro.asp)
+- [Javacript](https://www.w3schools.com/Js/)
+- [Python](https://www.python.org/downloads/release/python-3811/)
+
+
+**Libraries-Frameworks**
+
+- [Django 4.2.18](https://www.djangoproject.com/) : The open-source framework used for this project.
+- [django-allauth 0.57.2](https://django-allauth.readthedocs.io/en/latest/) : Set of applications for
+  authentication with ready templates.
+- [django-crispy-forms 2.3](https://pypi.org/project/django-crispy-forms/) : This package styles the form
+  without the need of using css. 
+- [crispy-bootstrap5 0.7](https://www.w3schools.com/css/css_intro.asp) : Renders the form using the 
+  Bootstap5 form controls and clases.  
+- [gunicorn 20.1.0](https://gunicorn.org/) : Python Http server to run the project on Heroku.
+- [django-summernote 0.8.20.0](https://summernote.org/) : A robust text editor allowing rich text 
+  with various formats  
+  like headings and paragraphs.
+
+- [postgreSQL](https://www.postgresql.org/) : Open source object-relational database.
+- [psycopg2-binary 2.9.10](https://www.psycopg.org/docs/) : A database adapter to use 
+  PostgreSQL commands from Python.
+- [sqlparse 0.5.3](https://pypi.org/project/sqlparse/) : A library used to parse SQL queries
+  in Python.
+- [dj-database-url 0.5.0](https://pypi.org/project/dj-database-url/) : Utility to connect Django 
+  to a database using a URL.
+
+- [Heroku](https://www.heroku.com/) : Cloud service for hosting projects.
+- [Bootstrap 5.3.3](https://getbootstrap.com/) : A framework used to build responsive websites.
+- [whitenoise 5.3.0](https://whitenoise.readthedocs.io/en/latest/) : allow Heroku app to serve its
+   own static files  
+   without relying on any external file hosting services.  
+
+The all list for required packages found in the ***requirements.txt*** file
+
+
+
 ## Testing
   - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
   - The web site is responsive and looks good on standard screen sizes using devtools device toolbar.
