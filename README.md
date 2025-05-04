@@ -416,7 +416,25 @@ The register, login and logout pages are consistent and have the same look and a
 
 The all list for required packages found in the ***requirements.txt*** file
 
+**Tools**
 
+- [W3C Validator](https://validator.w3.org/) Html code validator.
+- [W3C Css Validator](https://jigsaw.w3.org/css-validator/) Css code validator.
+- [Python Linter](https://pep8ci.herokuapp.com/) Code Institute Python Linter.
+- [GitHub](https://github.com/) Cloud based for hosting repository.
+
+- [Am I responsive](https://ui.dev/amiresponsive) Tool to check site responsiveness.
+
+- [TinyPng](https://tinypng.com/) image compressor to reduce size.
+
+- [Coolors](https://coolors.co/2f6690-3a7ca5-d9dcd6-16425b-81c3d7) Color palette generator.
+
+- [Google fonts](https://fonts.google.com/) Using fonts from google.
+
+- [Font Awesom](https://fontawesome.com/) Icons.
+
+- [Balsamiq](https://balsamiq.com/product/) Wireframes.
+- [JsHint](https://jshint.com/) Javascript code debugger.
 
 ## Testing
   - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
@@ -432,12 +450,244 @@ The all list for required packages found in the ***requirements.txt*** file
   - I included **mete tags** with **keywords** and **description** attribute to enable more
     SEO improvement.
 
-**Bugs**
-  - no bugs found.
-  - I had a difficulty to make the background image of all pages extent along to cover
-    the main element in it's section, also making the map in the home page responsive
-    and solved by the assist of **Code Institute Tutor** and **Mentor** as well.
+## Bugs
 
+  Fixed Bugs:  
+
+  - The name field was accepting any name without constraints, and was fixed by applying a validator  
+    to accept only alphabets that raises an error when the user enters a name that contains numbers or spaces:
+
+    ```Python
+    def validate_name(value):
+      if not value.isalpha():
+        raise ValidationError(
+            _('%(value)s is not allowed!, name can contain only letters and no spaces.'),
+            params={'value': value},
+            )
+    ```
+
+  - The time field in the admin caused some conflicts as it has no choices like the one applied to the
+    field in forms,  
+    and the admin has the ability to choose some time that is not defined in the list,
+    The solutions was to apply the same concept and customize the admin panel
+    we also used a function (strptime) to parse the entry to a time object.
+
+    ```Python
+    class ReservationAdminForm(forms.ModelForm):
+        time = forms.ChoiceField(choices=Reservation.time.field.choices, widget=forms.Select)
+        class Meta:
+            model = Reservation
+            fields = '__all__'
+        def clean_time(self):
+            timestr = self.cleaned_data['time']
+            tt = datetime.datetime.strptime(timestr, "%H:%M:%S").time()
+            for time_obj, display in Reservation.time.field.choices:
+                if time_obj == tt:
+                    return time_obj
+            raise forms.ValidationError(f"Invalid time choice: {tt}")
+    ```
+
+
+
+  
+  - The notes field was taking infinite characters, to solve this we add a ready validator to allow only
+    fixed character length:  
+    
+    ```Python
+    notes = models.TextField(blank=True, null=True, validators=[MaxLengthValidator(600)])
+    ```
+  Unfixed Bugs:
+
+  - The time in the form accepts a past time and it was not handeled, it is better to the user 
+    not to choose the current time, as this issue will be handelled in the future.
+    
+## Testing
+
+## Deploying
+
+After Django project was created and database tables (tables) as well, we migrated these tables to the databese, as the **db.sqlite3** database that comes with django only working for developement enviroment and not suitaable for production server like "Heroku",
+Heroku offers a "sqlite" database with some charge, for our project we used an instance of PostgreSQL 
+which a cloude based Database hosted on [CI Database](https://dbs.ci-dbs.net/).
+provided by Code Intitute for free.
+
+Steps for deploying:
+
+**Create Heroku App**  
+  1. Login to heroku and create new app.
+  2. Give the app a unique name and select the a region closeset to you.
+  3. Click on 'Create new app'.
+
+**Create a PostgreSQL Datebase**  
+
+  1. Login to [https://dbs.ci-dbs.net/.](https://dbs.ci-dbs.net/.)
+  2. Enter email address in the input field
+  3. Click submit.
+  4. Receive the database link in the email.  
+
+**Create the env.py file**  
+
+  After the databese is created we need to connect it to the project.
+  In order to keep the database hidden we need to create an enviroment variable in the 'env.py' file
+  and add this file to '.gitignore' so it is not pushed to Github.  
+  1. Use the next code to set value of the DATABASE_URL constant to the URL in the email you received
+     from PostgreSQL.
+  
+
+   ```python
+    import os
+    os.environ.setdefault(
+    "DATABASE_URL", "copiedURL")
+   ```
+  2. In the 'env.py' also create a SECRET_KEY using any string you like or use any 
+  [Secret key generator](https://secretkeygen.vercel.app/).  
+  As Django needs a SECRET_KEY to encrypt session cookies:
+
+  ```python
+    import os
+    os.environ.setdefault("SECRET_KEY", "value_created")
+   ```
+**Modify settings.py**  
+
+  1. Use the following code to connect the 'settings.py' file to 'env.py' file and import it only when it 
+  exists:
+  ```python
+    import os
+    import dj_database_url
+    if os.path.isfile('env.py'):
+        import env
+   ```
+  2. Reference the SECRET_KEY in 'settings.py' to the one generated lately and remove the old value:  
+
+  ```python
+      SECRET_KEY = os.environ.get("SECRET_KEY")
+  ```  
+  3. The 'DATABASES' variable in 'settings.py' connects the django applications to a default db.sqlite3
+     datebase which is already created and not suitable for a production enviroment.  
+     Using the dj_database_url import done before, connect this variable to the one in 'env.py':
+
+  ```python
+    # Database
+    # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+    # DATABASES = {
+    #    'default': {
+    #        'ENGINE': 'django.db.backends.sqlite3',
+    #        'NAME': BASE_DIR / 'db.sqlite3',
+    #    }
+    # }
+
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+   ```  
+  don't forget to add the default'db.sqlite3' database to '.gitignore' file if used before.  
+
+  4. save all the files and migrate the database to the ''PostgreSQL' database by running  
+    The '**python3 manage.py migrate**' command from terminal.
+
+**Connect the database to Heroku**
+
+  1. From heroku dashboard select the project app and click on 'Settings'.
+  2. Click on 'Reveal config vars' and add the 'DATABASE_URL' with the value of the coppied
+    URL from the database instance created  on CI database.
+  3. Add the variable 'SECRET_KEY' and it's value from 'env.py'or a value from your choice.
+
+**Setup Templates dir**
+
+  In 'settings.py' file add the following code under 'BASE_DIR' 
+  `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
+
+
+**Setup the Allowed hosts**
+
+  Also add the '.herokuapp.com' to the list of allowed hosts:  
+  `ALLOWED_HOSTS = ['.herokuapp.com']`
+
+**Create the Proccess file and necessary directories**
+
+ 1. Create the needed 'media','static' and 'templates' directories in top level of the project
+    next to manage.py.
+ 2. Create a file named 'Procfile' without any extention in the same level.
+ 3. Add the following command to the 'Procfile':
+    `web: gunicorn Myproject_name.wsgi`
+    - 'web' tells heroku this is a process that accepts an Http traffic.
+    - 'gunicorn' is the server used.
+    - 'wsgi' stands for web services gateway interface, is a standard that allows Python to integrate
+       with web services.
+  4. Push to Gethub.
+
+**Initial Deploy**
+
+ 1. From Heroku dashboard go to 'Deploy' tab.
+ 2. Choose 'GitHub' for deployment mehtod and search for the repositorry from the list
+    (type the repo name and choose it in the field).
+ 3. Select 'Deplopy branch' for manual deployment.
+ 4. when the Build is finished it should say that the deployment is successful.
+ 5. Oppen the app then the page will open and you will see a text says 
+    'the install workrd successfully' from Django.
+
+**Later Deploy**
+
+ 1. Set `DEBUG = False`.
+ 2. Commit and push ti GitHub.
+ 3. In heroku choose the app and go to settings tab then click on 'reveal config vars'.
+ 4. Delete 'DISABLE_COLLECTSTATIC' variable.
+ 5. Deploy your app as in the previous step.
+ 6. When the build is finished click on 'View' to see the app in the browser
+    you can click on 'Open App' in the top of the page also.
+
+**Forking repository**  
+
+To fork the repository in GitHub
+1. Click on this [link](https://github.com/kasemdeautsch/PP4) to open the repository.
+2. In the top right-hand corner click on fork.
+3. This will take you to your own repository to a fork with the same name as the original branch.
+
+**Cloning the repository**
+
+1. Go to the [repository](https://github.com/kasemdeautsch/PP4) in GitHub.
+2. Click on the green 'code' button in the right, select HTTPs and copy the link.
+3. In your IDE change the current directory to the one you want to create this clone in
+   or create a new directory under some name.
+4. Type git clone, and pase the link you copied and press Enter to create a local cloan.
+
+Information about creating and managing repositories is [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+
+## Credits
+
+**Code**
+
+I used the following walkthroughs to get my project done and shaped.
+
+- Firstly Thanks to Code Institue 'I think Therefor I Blog' project:  
+  Thanks for the course designing and the material given in this course, I realy liked this course 
+  as it explains everything in details.  
+  The header and the card idea inspired from this project
+
+- Secondly the student project [Restaurant](https://github.com/Pramilashanmugam/Restaurant)
+  this project inspired me a lot and I used it to write my documentation as I was confused
+  what to write in my README file, and helped me in creating the needed table fields 
+  in the reservations.
+
+Sites I visited alway for problem solving:
+
+- [Django documentation](https://docs.djangoproject.com/en/4.2/)
+- [Bootstrap documentation](https://getbootstrap.com/)
+- [Django Allauth ](https://django-allauth.readthedocs.io/en/latest/)
+- [Google ](https://www.google.com)
+- [Balsamiq](https://balsamiq.com/wireframes/)
+- The amazing AI tool [Perplexity](https://www.perplexity.ai/)
+- [slack members](https://app.slack.com/)
+
+
+**Persons**
+- All Code Institute staff.
+- My mentor Rory Patric for the help and guiding.
+- My facilitator Kristyna for informations I need.
+- All tutors, specially Roman, Rebecca, Oisin.
+- All my famiy members.
+ 
 **Validator Testing**
   - HTML
     - I tested all pages and no errors were returned when passing through the official W3C validator
