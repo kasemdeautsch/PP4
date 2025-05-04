@@ -7,18 +7,22 @@ it is a Full-stack, responsive WebApp and built for Education purpose.
 The website contains a homepage with wellcome message and options to make booking or view  
 The current bookings, after the user login, create, edit and delete their entries.
 
-## Overview
+# Table of contents
 
-ML.Bookings is a full-stack mobile-first desin working on most modern web browswes\
+- [Overview](#overview-id)
+- [The Agile Methodology](#agile)
+
+## Overview {#overview-id}
+
+ML.Bookings is a full-stack mobile-first desin working on most modern web browswes  
 Built using Bootstrab and Django Framework.
 
-It allows the users to register an account and login and book their Dine with time and date\
-desiged with role-based functionality edit permissions, to give them full CRUD functionality\
-on their bookings.
-
+It allows the users to register an account and login and book their Dine with time and date  
+desiged with role-based functionality edit permissions, to give them full CRUD functionality  
+on their bookings, 
 [Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
 
-## The Agile Methodology
+## The Agile Methodology {#agile}
 The project was made using methodology of a gile as a working software and Github Issues  
 to write User stories [Here!](https://github.com/kasemdeautsch/PP4/issues).
 
