@@ -9,10 +9,18 @@ The current bookings, after the user login, create, edit and delete their entrie
 
 # Table of contents
 
-- [Overview](#overview-id)
+- [Overview](#over)
 - [The Agile Methodology](#agile)
+- [User Stories (UX)](#user)
+- [Features](#Features)
+- [Technologies Used](#Techno)
+- [Testing](#testing)
+- [Deploying](#deploy)
+- [Forking the repository](#fork)
+- [Cloning the repository](#clone)
+- [Credits](#credits)
 
-## Overview {#overview-id}
+<h2 id="over">Overview</h2>
 
 ML.Bookings is a full-stack mobile-first desin working on most modern web browswes  
 Built using Bootstrab and Django Framework.
@@ -22,7 +30,8 @@ desiged with role-based functionality edit permissions, to give them full CRUD f
 on their bookings, 
 [Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
 
-## The Agile Methodology {#agile}
+<h2 id="agile">The Agile Methodology</h2>
+
 The project was made using methodology of a gile as a working software and Github Issues  
 to write User stories [Here!](https://github.com/kasemdeautsch/PP4/issues).
 
@@ -47,8 +56,9 @@ I didn't work with time iteration, but that way helped me using the isses and pr
 and milestones as well, when moving the tasks from 'todo' to 'in progress' then 'Done'\
 Lastly some user stories couldn't make it and moved to "wont have" in Backlog.
 
-## User Stories (UX)
-**Strategy / Site Goals**:  
+<h2 id="user">User Stories (UX)</h2>
+
+**Strategy / Site Goals:**  
 The site goal is to present an online Booking system that is a vailable to use from any device\
 and enables users and guests to register an account and login to watch their Bookings\
 after providing their contact details (E-mail address in this case) and have the apportunity\
@@ -130,7 +140,7 @@ Database table:
 ![](/static/images/erd.png)
 <hr/>
 
-**Skeleton / Wireframes-Prototype:**\
+**Skeleton / Wireframes-Prototype:**  
 An initial design of the layout done by drawing the layout on paper and then using the "Balsamiq" translated
 to a "mockup", this helped in Brainstorming me to imagine how the key contents will be placed and how the user
 will interact with them.
@@ -178,7 +188,7 @@ The **Delete Booking** page will load a modal for confirmation.
 
 **Surface / Design choices:**  
 The visual look of the website is simple:  
-+ Color Scheme:\
++ Color Scheme:  
   I used the white and black colors for most text and backgrounds, the colors (red,green yellow, blue)\
   used for buttons from bootstrab classes:
   ![](/static/images/wireframes/color-schem.png)
@@ -188,9 +198,7 @@ The visual look of the website is simple:
 
   <hr/>
 
-
-
-## Features
+<h2 id="Features">Features</h2>
 
 **Existing Features**
 
@@ -379,8 +387,7 @@ The register, login and logout pages are consistent and have the same look and a
 - Customer feedback like review is intended to be considered in the future.  
 - Forget password also is not present in this version.
 
-
-## Technologies used
+<h2 id="Techno">Technologies used</h2>
 
 **Languages**
 
@@ -420,7 +427,7 @@ The register, login and logout pages are consistent and have the same look and a
 
 The all list for required packages found in the ***requirements.txt*** file
 
-**Tools**
+**Tools used**
 
 - [W3C Validator](https://validator.w3.org/) Html code validator.
 - [W3C Css Validator](https://jigsaw.w3.org/css-validator/) Css code validator.
@@ -440,7 +447,8 @@ The all list for required packages found in the ***requirements.txt*** file
 - [Balsamiq](https://balsamiq.com/product/) Wireframes.
 - [JsHint](https://jshint.com/) Javascript code debugger.
 
-## Testing
+<h2 id="Testing">Testing</h2>
+
   - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
   - The web site is responsive and looks good on standard screen sizes using devtools device toolbar.
   - The header and navigation and text on all pages is readable and easy to understand.
@@ -454,8 +462,7 @@ The all list for required packages found in the ***requirements.txt*** file
   - I included **mete tags** with **keywords** and **description** attribute to enable more
     SEO improvement.
 
-## Bugs
-
+<h2 id="bugs">Bugs</h2>
   Fixed Bugs:  
 
   - The name field was accepting any name without constraints, and was fixed by applying a validator  
@@ -507,7 +514,7 @@ The all list for required packages found in the ***requirements.txt*** file
     
 ## Testing
 
-## Deploying
+<h2 id="deploy">Deploying</h2>
 
 After Django project was created and database tables (tables) as well, we migrated these tables to the databese, as the **db.sqlite3** database that comes with django only working for developement enviroment and not suitaable for production server like "Heroku",
 Heroku offers a "sqlite" database with some charge, for our project we used an instance of PostgreSQL 
@@ -640,14 +647,14 @@ Steps for deploying:
  6. When the build is finished click on 'View' to see the app in the browser
     you can click on 'Open App' in the top of the page also.
 
-**Forking repository**  
+<h2 id="fork">Forking the repository</h2>
 
 To fork the repository in GitHub
 1. Click on this [link](https://github.com/kasemdeautsch/PP4) to open the repository.
 2. In the top right-hand corner click on fork.
 3. This will take you to your own repository to a fork with the same name as the original branch.
 
-**Cloning the repository**
+<h2 id="clone">Cloning the repository</h2>
 
 1. Go to the [repository](https://github.com/kasemdeautsch/PP4) in GitHub.
 2. Click on the green 'code' button in the right, select HTTPs and copy the link.
@@ -658,6 +665,7 @@ To fork the repository in GitHub
 Information about creating and managing repositories is [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
 
+<h2 id="credits">Credits</h2>
 ## Credits
 
 **Code**
@@ -713,13 +721,9 @@ Sites I visited alway for problem solving:
   - Accesibility
     - Colors and fonts are accesible and readable using lighthouse in devtools.
       ![](/media/accessibility.png)
-## Deployment
 
-  - The site was deployed to GitHub pages. The steps to deploy are as follows:
-    - In the GitHub repository, navigate to the Settings tab
-    - From the source section drop-down menu, select the Master Branch
-    - Once the master branch has been selected, the page provides the link to the deployed project.
-    - The live link can be found [here](https://kasemdeautsch.github.io/Portfolio-1/).
+      
+
 ## Credits
 - Content
   - The text for the Home page was taken from Wikipedia Article A
