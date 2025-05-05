@@ -7,7 +7,8 @@ it is a Full-stack, responsive WebApp and built for Education purpose.
 The website contains a homepage with wellcome message and options to make booking or view  
 The current bookings, after the user login, create, edit and delete their entries.
 
-# Table of contents
+<h1 id="table">Table of contents</h1>
+
 
 - [Overview](#over)
 - [The Agile Methodology](#agile)
@@ -15,6 +16,7 @@ The current bookings, after the user login, create, edit and delete their entrie
 - [Features](#Features)
 - [Technologies Used](#Techno)
 - [Testing](#testing)
+- [Bugs](#bugs)
 - [Deploying](#deploy)
 - [Forking the repository](#fork)
 - [Cloning the repository](#clone)
@@ -29,6 +31,8 @@ It allows the users to register an account and login and book their Dine with ti
 desiged with role-based functionality edit permissions, to give them full CRUD functionality  
 on their bookings, 
 [Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
+
+<u>[Back To Top](#table)</u>
 
 <h2 id="agile">The Agile Methodology</h2>
 
@@ -56,20 +60,20 @@ I didn't work with time iteration, but that way helped me using the isses and pr
 and milestones as well, when moving the tasks from 'todo' to 'in progress' then 'Done'\
 Lastly some user stories couldn't make it and moved to "wont have" in Backlog.
 
-<h2 id="user">User Stories (UX)</h2>
+<u>[Back To Top](#table)</u>
+<h2 id="user">User Stories (UX) Five Planes</h2>
 
-**Strategy / Site Goals:**  
+**1. Strategy / Site Goals:**  
 The site goal is to present an online Booking system that is a vailable to use from any device\
 and enables users and guests to register an account and login to watch their Bookings\
 after providing their contact details (E-mail address in this case) and have the apportunity\
 to have control on their own Bookkings.
 <hr/>
 
-**Scope / User Stories:**  
+**2. Scope / User Stories:**  
 With The user stories in the project mentioned as written and what the site users\
 will expect from the website which is translated to these user stories.\
 The content and features will come to live in later sections.
-
 
 The user types includes the traditional user who will use the site to only book.\
 And the Site Owner / Admin role and the Developer user stories will have below.
@@ -105,7 +109,7 @@ As a Developper:
 - As an Admin I can Add fav-icons on the website tab so that the appearance of the site looks good and draw the guest's attention.[#13](https://github.com/kasemdeautsch/PP4/issues/13).
 <hr/>
 
-**Structure / (Organization, user-flow):**  
+**3. Structure / (Organization, user-flow):**  
 The website uses a consistence layout and few colours with responsivness on most known breakpoints.\
 Navigation will be on top of the site with links to registration, login and logout displayed as burger menu on mobile\
 and expanded on larger screens.
@@ -140,7 +144,7 @@ Database table:
 ![](/static/images/erd.png)
 <hr/>
 
-**Skeleton / Wireframes-Prototype:**  
+**4. Skeleton / Wireframes-Prototype:**  
 An initial design of the layout done by drawing the layout on paper and then using the "Balsamiq" translated
 to a "mockup", this helped in Brainstorming me to imagine how the key contents will be placed and how the user
 will interact with them.
@@ -180,13 +184,13 @@ will interact with them.
 
 **Signout Page**
 
-![](/static/images/wireframes/signout-mobile.png)\
-![](/static/images/wireframes/signout-desktop.png)
+![](/static/images/wireframes/signout-mobile.png)  
+![](/static/images/wireframes/signout-desktop.png)  
 
 The **Delete Booking** page will load a modal for confirmation.
 <hr/>
 
-**Surface / Design choices:**  
+**5. Surface / Design choices:**  
 The visual look of the website is simple:  
 + Color Scheme:  
   I used the white and black colors for most text and backgrounds, the colors (red,green yellow, blue)\
@@ -194,9 +198,9 @@ The visual look of the website is simple:
   ![](/static/images/wireframes/color-schem.png)
   The Footer and Header have the same color which is "bg-body-tertiary" from Bootstrap.
 + Typography:
-  Poppins and sans-serif fonts were used in this site.
-
-  <hr/>
+  Poppins and sans-serif fonts were used in this site.  
+<u>[Back To Top](#table)</u>
+<hr/>
 
 <h2 id="Features">Features</h2>
 
@@ -220,11 +224,13 @@ The visual look of the website is simple:
     ![](/static/images/features/desktop-header.png)
 
     ![](/static/images/features/desktop-header2.png)
+<hr/>
 
 - Footer:  
   The footer is full responsive and placed at the buttom and repeated on all pages to allow consistence look.    
     - It leads to external links for social media for contacting.
       ![](/static/images/features/desktop-header2.png)
+<hr/>
 
 - Landing page:  
   The landing page is a wellcome message that takes less than the full page size.
@@ -237,6 +243,7 @@ The visual look of the website is simple:
     ![](/static/images/features/landing.png)
 
     ![](/static/images/features/landing2.png)
+<hr/>
 
 - Register:  
   The site provides a full responsive page for users to register an account.
@@ -253,6 +260,7 @@ The visual look of the website is simple:
     ![](/static/images/features/desktop-register.png)
 
     ![](/static/images/features/mobile-register.png)
+<hr/>
 
 - Login:  
   The login page is full responsive and can be accessed from the navbar on top.
@@ -269,6 +277,7 @@ The visual look of the website is simple:
     ![](/static/images/features/desktop-signin.png)
 
     ![](/static/images/features/signin-message.png)
+<hr/>
 
 - Logout:  
   The website provides a functionality for the logged-in users to logout.
@@ -284,6 +293,8 @@ The visual look of the website is simple:
   ![](/static/images/features/signout-message.png)
 
 The register, login and logout pages are consistent and have the same look and appearance.
+<hr/>
+
 - **CRUD Functionality**  
   The website gives the users a full functionality on their own bookings to:  
   Create, Read, Update and Delete.
@@ -332,6 +343,7 @@ The register, login and logout pages are consistent and have the same look and a
     - Only the bookings related to the user currently logged in will show.
 
       ![](/static/images/features/landing2.png)
+<hr/>
 
 - Edit Booking:  
   The users can edit their own bookings by clicking the "Edit Booking" button.
@@ -342,6 +354,7 @@ The register, login and logout pages are consistent and have the same look and a
   - The user can cancel the operation by clicking the "Back" button.
 
     ![](/static/images/features/edit-booking.png)
+<hr/>
 
 - Delete Booking:  
   The site provide a delete functionality by clicking the "Delete booking" button.
@@ -355,6 +368,7 @@ The register, login and logout pages are consistent and have the same look and a
     ![](/static/images/features/delete-modal.png)
 
     ![](/static/images/features/success-delete.png)
+<hr/>
 
 - Admin Panel:  
   The website provides the owner a way to access the database tables using the Django admin panel.  
@@ -380,12 +394,16 @@ The register, login and logout pages are consistent and have the same look and a
 
     ![](/static/images/features/admin-edit.png)
 
+<hr/>
 
 **Features Left to Implement**
 - I intend to expand the website to have the opportunity to reserve a table along with the booking.  
 - The time choices don't check the current time to disallow booking in the past.  
 - Customer feedback like review is intended to be considered in the future.  
 - Forget password also is not present in this version.
+
+<u>[Back To Top](#table)</u>
+<hr/>
 
 <h2 id="Techno">Technologies used</h2>
 
@@ -447,7 +465,10 @@ The all list for required packages found in the ***requirements.txt*** file
 - [Balsamiq](https://balsamiq.com/product/) Wireframes.
 - [JsHint](https://jshint.com/) Javascript code debugger.
 
-<h2 id="Testing">Testing</h2>
+<u>[Back To Top](#table)</u>
+<hr/>
+
+<h2 id="testing">Testing</h2>
 
   - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
   - The web site is responsive and looks good on standard screen sizes using devtools device toolbar.
@@ -461,6 +482,9 @@ The all list for required packages found in the ***requirements.txt*** file
   - All links have the **Aria-label** attribute.
   - I included **mete tags** with **keywords** and **description** attribute to enable more
     SEO improvement.
+
+<u>[Back To Top](#table)</u>
+<hr/>
 
 <h2 id="bugs">Bugs</h2>
   Fixed Bugs:  
@@ -497,9 +521,6 @@ The all list for required packages found in the ***requirements.txt*** file
                     return time_obj
             raise forms.ValidationError(f"Invalid time choice: {tt}")
     ```
-
-
-
   
   - The notes field was taking infinite characters, to solve this we add a ready validator to allow only
     fixed character length:  
@@ -507,11 +528,15 @@ The all list for required packages found in the ***requirements.txt*** file
     ```Python
     notes = models.TextField(blank=True, null=True, validators=[MaxLengthValidator(600)])
     ```
+    <hr/>
+
   Unfixed Bugs:
 
   - The time in the form accepts a past time and it was not handeled, it is better to the user 
     not to choose the current time, as this issue will be handelled in the future.
     
+<u>[Back To Top](#table)</u>
+<hr/>
 ## Testing
 
 <h2 id="deploy">Deploying</h2>
@@ -647,6 +672,9 @@ Steps for deploying:
  6. When the build is finished click on 'View' to see the app in the browser
     you can click on 'Open App' in the top of the page also.
 
+<u>[Back To Top](#table)</u>
+<hr/>
+
 <h2 id="fork">Forking the repository</h2>
 
 To fork the repository in GitHub
@@ -654,6 +682,8 @@ To fork the repository in GitHub
 2. In the top right-hand corner click on fork.
 3. This will take you to your own repository to a fork with the same name as the original branch.
 
+<u>[Back To Top](#table)</u>
+<hr/>
 <h2 id="clone">Cloning the repository</h2>
 
 1. Go to the [repository](https://github.com/kasemdeautsch/PP4) in GitHub.
@@ -664,9 +694,10 @@ To fork the repository in GitHub
 
 Information about creating and managing repositories is [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
+<u>[Back To Top](#table)</u>
+<hr/>
 
 <h2 id="credits">Credits</h2>
-## Credits
 
 **Code**
 
@@ -699,7 +730,9 @@ Sites I visited alway for problem solving:
 - My facilitator Kristyna for informations I need.
 - All tutors, specially Roman, Rebecca, Oisin.
 - All my famiy members.
- 
+
+<u>[Back To Top](#table)</u>
+<hr/>
 **Validator Testing**
   - HTML
     - I tested all pages and no errors were returned when passing through the official W3C validator
@@ -722,7 +755,7 @@ Sites I visited alway for problem solving:
     - Colors and fonts are accesible and readable using lighthouse in devtools.
       ![](/media/accessibility.png)
 
-      
+
 
 ## Credits
 - Content
