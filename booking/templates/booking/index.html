@@ -1,7 +1,6 @@
 {% extends "base.html" %} 
-{% url 'account_login' %}
+{% url 'account_login' %} 
 {% block content %}
-
 
 <!-- index.html content starts here -->
 <section class="container-fluid">
@@ -25,8 +24,11 @@
             >My Bookings</a
           >
           {% else %}
-          <p>Please <a href="{% url 'account_login' %}" class="link"
-            >sign in</a> to book for a meal.</p>
+          <p>
+            Please
+            <a href="{% url 'account_login' %}" class="link">sign in</a> to book
+            for a meal.
+          </p>
           {% endif %}
         </div>
       </div>
@@ -34,12 +36,8 @@
   </div>
 </section>
 
-
-
-
 <!-- index.html content ends here -->
 {% endblock %} 
-
-{% block copyrights%} 
+{% block copyrights %} 
 Copyright 2023 Kasem 
-{% endblock copyrights%}
+{% endblock copyrights %}

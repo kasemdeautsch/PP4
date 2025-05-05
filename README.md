@@ -9,7 +9,6 @@ The current bookings, after the user login, create, edit and delete their entrie
 
 <h1 id="table">Table of contents</h1>
 
-
 - [Overview](#over)
 - [The Agile Methodology](#agile)
 - [User Stories (UX)](#user)
@@ -470,6 +469,11 @@ The all list for required packages found in the ***requirements.txt*** file
 
 <h2 id="testing">Testing</h2>
 
+  All testing can be found in [TESTING.md](/TESTING.md).
+
+  <u>[Back To Top](#table)</u>
+  <hr/>
+
   - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
   - The web site is responsive and looks good on standard screen sizes using devtools device toolbar.
   - The header and navigation and text on all pages is readable and easy to understand.
@@ -534,7 +538,8 @@ The all list for required packages found in the ***requirements.txt*** file
 
   - The time in the form accepts a past time and it was not handeled, it is better to the user 
     not to choose the current time, as this issue will be handelled in the future.
-    
+  - Also date in admin is not validated as the admin can choose past date, the solution for now not to choose
+    previous dates as this will be handled in future iteration.
 <u>[Back To Top](#table)</u>
 <hr/>
 ## Testing

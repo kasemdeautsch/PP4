@@ -39,7 +39,7 @@ body {
 .user-loging {
     font-size: .9rem;
 }
-/* Main to take all surplus space and push footer down */
+/* Main, to take all surplus space and push footer down */
 main {
     flex: 1 0 auto;
 }

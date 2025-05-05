@@ -1,17 +1,13 @@
-from django.views.generic import ListView, CreateView, TemplateView
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-#from django.http import HttpResponse
 
+from django.views.generic import TemplateView
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .forms import ReservationForm
 from .models import Reservation
-import datetime
-
 # Create your views here.
 
 
@@ -24,16 +20,15 @@ class Home(TemplateView):
 
 def reservation_list(request):
     """
+    Renders the list of reservations(bokkings) for particular user
     Display a list of reservations :model:`booking.Reservation`.
 
     **Context**
-
     ``reservations``
         All reservations of the requested user :model:`booking.Reservation`.
     ``reservations_count``
         A count of reservations related to the user.
     **Template:**
-
     :template:`booking/reservation_list.html`
     """
     user = get_object_or_404(User, username=request.user)
@@ -52,39 +47,28 @@ def reservation_list(request):
 def make_reservation(request):
     """
     Display a form to fill in the required fields :model:`booking.Reservation`.
-
     **Context**
-
     ``reservation_form``
         an instance of :form: booking.ReservationForm
     **Template:**
-
     :template:`booking/make_reservation.html`
     """
     if request.method == "POST":
         reservation_form = ReservationForm(data=request.POST)
         print("form-before: ")
         if reservation_form.is_valid():
-            print('---------------------------------')
-            print('1--data:', reservation_form.data)
-            print('1--cleaned-data:', reservation_form.cleaned_data)
-            print('1--date: ', reservation_form.cleaned_data['date'], 'type', type(reservation_form.cleaned_data['date']))
-            print('1--time: ', reservation_form.cleaned_data['time'], 'type', type(reservation_form.cleaned_data['time']))
-            print('---------------------------------')
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
-            messages.add_message(request, messages.SUCCESS, "Yor have successfully booked!")
+            messages.add_message(
+                request, messages.SUCCESS, "Yor have successfully booked!"
+                )
             return HttpResponseRedirect(reverse("reservations"))
         else:
-            messages.add_message(request, messages.ERROR, "Error in Booking!, please enter valid fields")
-        print('---------------------------------')
-        print('2--data:', reservation_form.data)
-        print('2--cleaned-data:', reservation_form.cleaned_data)
-        print('---------------------------------')
-        print("------Errors", reservation_form.errors)
-        print("------Errors>>", reservation_form.errors.as_json())
-
+            messages.add_message(
+                request, messages.ERROR, "Error in Booking!, "
+                                         "please enter valid fields"
+                )
     else:
         reservation_form = ReservationForm()
 
@@ -99,35 +83,33 @@ def make_reservation(request):
 
 def reservation_edit(request, reservation_id):
     """
-    Display an individual reservation for edit :model:`booking.Reservation`.
     Receives `reservation_id` and fetches the related one from databese.
-
+    Display an individual reservation for edit :model:`booking.Reservation`.
     **Context**
-
     ``reservation``
          A single reservation related to the requested user.
     ``reservation_form``
         an instance of :form: booking.ReservationForm
     **Template:**
-
     :template:`booking/edit_reservation.html`
     """
     if request.method == "POST":
         reservation = get_object_or_404(Reservation, pk=reservation_id)
-        reservation_form = ReservationForm(data=request.POST, instance=reservation)
+        reservation_form = ReservationForm(data=request.POST,
+                                           instance=reservation)
         if reservation_form.is_valid() and reservation.user == request.user:
             reservation = reservation_form.save(commit=False)
             reservation.user = request.user
             reservation.save()
-            messages.add_message(request, messages.SUCCESS, "Booking Updated Successfully!")
+            messages.add_message(
+                request, messages.SUCCESS, "Booking Updated Successfully!"
+                )
             reservation_form = ReservationForm()
             return HttpResponseRedirect(reverse("reservations"))
-            
         else:
-            messages.add_message(request, messages.ERROR, "Error Updating Booking!")
-            #reservation_form = ReservationForm()
-            #return HttpResponseRedirect(reverse("reservations"))
-            #return redirect(reverse('reservations'))
+            messages.add_message(
+                request, messages.ERROR, "Error Updating Booking!"
+                )
     else:
         reservation = get_object_or_404(Reservation, pk=reservation_id)
         reservation_form = ReservationForm(instance=reservation)
@@ -142,16 +124,14 @@ def reservation_edit(request, reservation_id):
 
 def reservation_delete(request, reservation_id):
     """
-    Display an individual reservation for edit :model:`booking.Reservation`.
     receives `reservation_id` and fetches the related one from databese.
     then deletes it.
-    
+    Display an individual reservation for edit :model:`booking.Reservation`.
     **Context**
-
     ``reservation``
          A single reservation related to the requested user.
     ``reservation_form``
-        an instance of :form: booking.ReservationForm
+        an instance of :form:`booking.ReservationForm`
     **Template:**
 
     :template:`booking/edit_reservation.html`
@@ -159,28 +139,12 @@ def reservation_delete(request, reservation_id):
     reservation = get_object_or_404(Reservation, pk=reservation_id)
     if reservation.user == request.user:
         reservation.delete()
-        messages.add_message(request, messages.SUCCESS, "Booking deleted Successfully!")
+        messages.add_message(
+            request, messages.SUCCESS, "Booking deleted Successfully!"
+        )
     else:
-        messages.add_message(request, messages.ERROR, "Error! You can only delete your own Booking.")
+        messages.add_message(
+            request, messages.ERROR,
+            "Error! You can only delete your own Booking."
+        )
     return HttpResponseRedirect(reverse("reservations"))
-
-
-# class ReservationListView(ListView):
-
-"""""
-class ReservationList(ListView):
-    # model = Reservation
-    context_object_name = 'reservations'
-    # queryset = Reservation.objects.all()
-    # queryset = Reservation.objects.filter(name='jamal')
-    queryset = Reservation.objects.all().order_by("-date")
-    template_name = "booking/index.html"
-    #paginate_by = 6
-    
-
-"""
-"""
-class ResevationCreateView(CreateView):
-    model = Reservation
-    fields = ["name", "date", "time", "time", "notes", "user"]
-"""
