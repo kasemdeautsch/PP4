@@ -1,11 +1,12 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% load i18n %} 
 <!-- Bootstrap elements and classes to signup page -->
 <!-- 'Code institute' signup page -->
 {% block content %}
 <div class="container p-3">
   <div class="row">
-    <div class="col-10 card-color offset-1 p-3">
+    <div class="col-10 col-md-8 col-lg-6 card-color offset-1 p-3">
       <div class="row">
         <div class="col mt-3">
           <h3 class="mb-3">{% trans "Sign Up" %}</h3>
@@ -27,7 +28,7 @@
             action="{% url 'account_signup' %}"
           >
             {% csrf_token %} 
-            {{ form.as_p }} 
+            {{ form | crispy }} 
             {% if redirect_field_value %}
             <input
               type="hidden"

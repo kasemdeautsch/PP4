@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container mt-5">
  <div class="row">
-  <div class="col-10 card-color offset-1">
+  <div class="col-10 col-md-6 card-color offset-1">
     <div class="row">
       <div class="col mt-3">
         <h3 class="mb-3">{% trans "Sign Out" %}</h3>
@@ -18,7 +18,8 @@
     <div class="row">
       <div class="col mt-3">
         <form method="post" action="{% url 'account_logout' %}">
-          {% csrf_token %} {% if redirect_field_value %}
+          {% csrf_token %} 
+          {% if redirect_field_value %}
           <input
             type="hidden"
             name="{{ redirect_field_name }}"
