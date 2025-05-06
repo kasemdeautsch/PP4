@@ -21,13 +21,47 @@ A manual testing was performed to this project because it is a small project.
 
 **HTML**  
 The Html code was tested using the [W3C Validator](https://validator.w3.org/).
-The Validation was done for each page bei 'Direct Input' using 'Herokua App URL'.
+The Validation was done for each page bei copying the source code using 'Direct Input'.
 
 Below the screenshots for each page:
 
-**Home**
+**Landing page**
 
-![](/static/images/testing/test-home.png)
+![](/static/images/testing/test-landingpage.png)
+
+**Home page**
+
+![](/static/images/testing/test-homepage.png)
+
+**Bookings page**
+
+![](/static/images/testing/test-reservations.png)
+
+**Edit booking page**
+
+![](/static/images/testing/test-edit.png)
+
+**Delete booking page**
+
+![](/static/images/testing/test-delete.png)
+
+**Delete booking page**
+
+![](/static/images/testing/test-delete.png)
+
+**Login page**
+
+![](/static/images/testing/test-login.png)
+![](/static/images/testing/test-login2.png)
+
+**Logout page**
+
+![](/static/images/testing/test-logout.png)
+
+*Signup page**
+
+![](/static/images/testing/test-signup.png)
+
 
 
 
