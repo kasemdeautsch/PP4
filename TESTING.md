@@ -11,8 +11,8 @@ A manual testing was performed to this project because it is a small project.
 
 - [Code Validation](#code)
 - [Lighthouse](#lighthouse)
-- [Overview](#over)
-- [Overview](#over)
+- [Responsiveness Testing](#responsive)
+- [Browser compatibility Testing](#compatibility)
 - [Overview](#over)
 
 <hr/>
@@ -124,9 +124,113 @@ The warnings in the image are related to Django code and was not changed.
 
 <h3 id="lighthouse">Lighthous Testing</h3>
 
-A Lighthouse testing was done in the local enviroment to check the performance, accessibility,  
-best practice and 
+A Lighthouse testing was done in the local enviroment using Chrome DevTools in incognito mode  
+to check the performance, accessibility, best practice and SEO.
+
+**Landing page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-landing.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-landing.png)
+
+**Home page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-home.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-home.png)
+
+**Bookings list page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-bookings.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-bookings.png)
+
+**Edit Bookings page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-edit.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-edit.png)
+
+**Make booking page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-make.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-make.png)
+
+**Delete booking page**  
+When I tested the page that contains a 'modal' I got the next result:
+- mobile
+
+  ![](/static/images/testing/light-mobile-delete.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-delete.png)
+
+**Sign in page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-signin.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-signin.png)
+
+  **Logout page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-logout.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-logout.png)
 
 
+  **Sign up page**
+- mobile
+
+  ![](/static/images/testing/light-mobile-signup.png)
+
+- desktop
+
+  ![](/static/images/testing/light-desktop-signup.png)
+
+
+<u>[Back To Top](#table)</u>
+
+<hr/>
+
+<h3 id="responsive">Responsiveness Testing</h3>
+
+The site is responsive for mobiles, tablets, labtops and extra screen sizes, it was tested  
+manualy and using Chrome DevTools as well.
+
+![](/static/images/main.png)
+
+<u>[Back To Top](#table)</u>
+
+<hr/>
+
+<h3 id="compatibility">Browser compatibility Testing</h3>
+
+The site is responsive for mobiles, tablets, labtops and extra screen sizes, it was tested  
+manualy and using Chrome DevTools as well.
+
+![](/static/images/main.png)
 
 <u>[Back To Top](#table)</u>

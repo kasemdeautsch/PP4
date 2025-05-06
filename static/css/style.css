@@ -62,7 +62,10 @@ p {
 }
 
 .o-brand {
-    color: red;
+    color: #AD0000;
+}
+.link {
+    color: #451fec;
 }
 
 form.signup p > label {

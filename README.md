@@ -463,6 +463,7 @@ The all list for required packages found in the ***requirements.txt*** file
 
 - [Balsamiq](https://balsamiq.com/product/) Wireframes.
 - [JsHint](https://jshint.com/) Javascript code debugger.
+- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) Color ontrast checker.
 
 <u>[Back To Top](#table)</u>
 <hr/>
