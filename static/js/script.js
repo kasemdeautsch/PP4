@@ -12,7 +12,7 @@ const deleteConfirm = document.getElementById('deleteConfirm');
 */
 for(let button of editButtons){
     button.addEventListener("click", (e) => {
-        let reservationId=e.target.getAttribute('reserv-id');
+        let reservationId=e.target.getAttribute('data-reserv_id');
         button.href= `edit_reservation/${reservationId}`;
     });
 }
@@ -28,7 +28,7 @@ for(let button of editButtons){
 */
 for (let button of deleteButtons) {
     button.addEventListener('click', (e) => {
-        let reservationId= e.target.getAttribute('reserv-id');
+        let reservationId= e.target.getAttribute('data-reserv_id');
         deleteConfirm.href = `delete_reservation/${reservationId}`;
         deleteModal.show();
     });

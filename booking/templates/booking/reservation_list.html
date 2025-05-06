@@ -5,7 +5,6 @@
 <section class="container-fluid">
   <div class="row">
     <!-- Reservations Column -->
-
     <div class="col-12 mt-3 left">
       <div class="card m-3 p-3">
         <div class="card-body text-center card-color">
@@ -24,14 +23,13 @@
           {% if user.is_authenticated and reservation.user == request.user %}
           <button
             class="btn btn-warning me-3 mb-3 btn-delete"
-            reserv-id="{{ reservation.id }}"
+            data-reserv_id="{{ reservation.id }}"
           >
             Delete Booking
           </button>
           <a
-            href="#"
             class="btn btn-info mb-3 btn-edit"
-            reserv-id="{{ reservation.id }}"
+            data-reserv_id="{{ reservation.id }}"
             >Edit Booking</a
           >
           {% else %}
@@ -40,7 +38,7 @@
           {% endfor %} 
           {% endif %}
           <div class="col-12 mt-3">
-            <a href="{% url 'home' %}" class="btn btn-primary btn-lg"
+            <a href="{% url 'home' %}" class="btn btn-primary"
               >&laquo; Home</a
             >
           </div>
