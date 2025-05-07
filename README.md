@@ -29,6 +29,9 @@ Built using Bootstrab and Django Framework.
 It allows the users to register an account and login and book their Dine with time and date  
 desiged with role-based functionality edit permissions, to give them full CRUD functionality  
 on their bookings, 
+
+The name in Heroku has the word'restaurent' instead 'restaurant' and it was a mistake, I didn't  
+change it and was confused that it will break something in GitHub.
 [Link to the live website](https://my-restaurent-6ec23ea949ae.herokuapp.com/)
 
 <u>[Back To Top](#table)</u>
