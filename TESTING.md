@@ -349,10 +349,10 @@ but the functionality was tested and validated as the time was critical.
 
 `Sign out`
 
+| Scenario        | Expected           | result  |
 | ------------- |:-------------:| -----:|
 | click on log out button in navbar | 1. Should prompt the user to confirm the logout. 2. on confirm by clicking signout. User should get signedout. 3. user cannot access booking list after signout | 1. Pass - as expected, user is prompted to confirm his logout. 2. Pass - as expected, when the signout button clicked the user gets signed out from his account. 3. Pass - as expected, user was unable to access the booking history after signout. | 
 
-| zebra stripes | are neat      |    $1 | 
 
 `Django Admin administration`
 
