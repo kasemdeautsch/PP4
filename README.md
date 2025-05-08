@@ -42,7 +42,7 @@ The project was made using methodology of a gile as a working software and Githu
 to write User stories [Here!](https://github.com/kasemdeautsch/PP4/issues).
 
 All user stories contain Acceptance Criteria and tasks to match these criteria, and some
-were concedard as Epic,\
+were considered as Epic,\
 As I didn't know in the beginning which task to begin, then the vision
 became to be appear as it was just a user story.
 
@@ -56,8 +56,8 @@ Scrrenshots of Project Kanban Board, Epic and user stories:
 ![](/static/images/project.png)
 ![](/static/images/user-stories.png)
 
-The Agile Methodology was great way to write my code and organise it according to the importance\
-So that the most needed features will work first of all like registration and login,\
+The Agile Methodology was great way to write my code and organise it according to the importance,\
+so that the most needed features will work first of all like registration and login,\
 I didn't work with time iteration, but that way helped me using the isses and project Kanban\
 and milestones as well, when moving the tasks from 'todo' to 'in progress' then 'Done'\
 Lastly some user stories couldn't make it and moved to "wont have" in Backlog.
@@ -73,9 +73,9 @@ to have control on their own Bookkings.
 <hr/>
 
 **2. Scope / User Stories:**  
-With The user stories in the project mentioned as written and what the site users\
-will expect from the website which is translated to these user stories.\
-The content and features will come to live in later sections.
+A Brainstorm comes to mind and think of what possible features the  site users\
+will expect from the website which is translated to 'user stories'.\
+The content and features will come to live now.
 
 The user types includes the traditional user who will use the site to only book.\
 And the Site Owner / Admin role and the Developer user stories will have below.
@@ -231,7 +231,7 @@ The visual look of the website is simple:
 - Footer:  
   The footer is full responsive and placed at the buttom and repeated on all pages to allow consistence look.    
     - It leads to external links for social media for contacting.
-      ![](/static/images/features/desktop-header2.png)
+      ![](/static/images/features/footer.png)
 <hr/>
 
 - Landing page:  
@@ -314,7 +314,7 @@ The register, login and logout pages are consistent and have the same look and a
 
     ![](/static/images/features/date-error.png)
 
-  - The time field has choices with the allowed timings to avoid un wanted options.
+  - The time field has choices with the allowed timings to avoid unwanted options.
 
     ![](/static/images/features/time-choices.png)
 
@@ -326,7 +326,7 @@ The register, login and logout pages are consistent and have the same look and a
 
     ![](/static/images/features/notes-error.png)
   
-  - A general message will display over the form  shows if thre are errors in the operation:
+  - A general message will display over the form  shows if there are errors in the operation:
 
     ![](/static/images/features/all-error.png)
 
@@ -378,7 +378,7 @@ The register, login and logout pages are consistent and have the same look and a
   A number of customization is done by customizing the "Admin" page.  
 
   - The admin panel accessed by appending /admin/ to the end of the url in the URL bar.
-  - the Superuser used as "Username" with the "Password" granted.
+  - the Superuser uses his "Username" with the "Password" granted.
   - The other users with "staff" status cann't access the admin page.
   - Only the Superuser can access thae admin panel.
   - The admin panel lists all apps installed for "Authenticatin and Authorization" and "Booking".
@@ -396,6 +396,13 @@ The register, login and logout pages are consistent and have the same look and a
 
     ![](/static/images/features/admin-edit.png)
 
+- Messages framework:  
+  Added new functionality for messages using the tags setting to apply Bootstrap appropriate class  
+  to messages according to the message tag (success/error).
+
+  ![](/static/images/features/success-message.png)
+
+  ![](/static/images/features/error-message.png)
 <hr/>
 
 **Features Left to Implement**
@@ -478,22 +485,6 @@ The all list for required packages found in the ***requirements.txt*** file
   <u>[Back To Top](#table)</u>
   <hr/>
 
-  - I tested the website and it works on different web browsers like Chrome, Firefox and Edge.
-  - The web site is responsive and looks good on standard screen sizes using devtools device toolbar.
-  - The header and navigation and text on all pages is readable and easy to understand.
-  - I tested the Form and confirmed that it works and required fields fuction, the form will not
-      accept to register without entering a valid Email address, the Register field works as well
-      and when clicking on it the information sent to the corresponding web site and shows the details
-      collected from user.
-  - All links and the Form submission opens in a new tab.
-  - All Images have the **alt** attribute for the purpose of impared visual users.
-  - All links have the **Aria-label** attribute.
-  - I included **mete tags** with **keywords** and **description** attribute to enable more
-    SEO improvement.
-
-<u>[Back To Top](#table)</u>
-<hr/>
-
 <h2 id="bugs">Bugs</h2>
   Fixed Bugs:  
 
@@ -544,18 +535,18 @@ The all list for required packages found in the ***requirements.txt*** file
     not to choose the current time, as this issue will be handelled in the future.
   - Also date in admin is not validated as the admin can choose past date, the solution for now not to choose
     previous dates as this will be handled in future iteration.
+
 <u>[Back To Top](#table)</u>
 <hr/>
-## Testing
 
 <h2 id="deploy">Deploying</h2>
 
-After Django project was created and database tables (tables) as well, we migrated these tables to the databese, as the **db.sqlite3** database that comes with django only working for developement enviroment and not suitaable for production server like "Heroku",
+After Django project was created and database tables as well, we migrated these tables to the databese, as the **db.sqlite3** database that comes with django only working for developement enviroment and not suitable for production server like "Heroku",
 Heroku offers a "sqlite" database with some charge, for our project we used an instance of PostgreSQL 
-which a cloude based Database hosted on [CI Database](https://dbs.ci-dbs.net/).
+which is a cloude based Database hosted on [CI Database](https://dbs.ci-dbs.net/).
 provided by Code Intitute for free.
 
-Steps for deploying:
+**Steps for deploying:**
 
 **Create Heroku App**  
   1. Login to heroku and create new app.
@@ -635,18 +626,36 @@ Steps for deploying:
   1. From heroku dashboard select the project app and click on 'Settings'.
   2. Click on 'Reveal config vars' and add the 'DATABASE_URL' with the value of the coppied
     URL from the database instance created  on CI database.
-  3. Add the variable 'SECRET_KEY' and it's value from 'env.py'or a value from your choice.
+  3. Add the variable 'SECRET_KEY' and it's value from 'env.py' or a value from your choice.
 
 **Setup Templates dir**
 
   In 'settings.py' file add the following code under 'BASE_DIR' 
   `TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')`
 
+  Add the 'BASE_DIR' to 'DIRS' in the 'TEMPLATES' variable list
+  ```python
+      TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+  ```
 
 **Setup the Allowed hosts**
 
   Also add the '.herokuapp.com' to the list of allowed hosts:  
-  `ALLOWED_HOSTS = ['.herokuapp.com']`
+  `ALLOWED_HOSTS = ['.herokuapp.com']` Note the '`.`'
 
 **Create the Proccess file and necessary directories**
 
@@ -659,7 +668,7 @@ Steps for deploying:
     - 'gunicorn' is the server used.
     - 'wsgi' stands for web services gateway interface, is a standard that allows Python to integrate
        with web services.
-  4. Push to Gethub.
+  4. Push to Github.
 
 **Initial Deploy**
 
@@ -668,13 +677,13 @@ Steps for deploying:
     (type the repo name and choose it in the field).
  3. Select 'Deplopy branch' for manual deployment.
  4. when the Build is finished it should say that the deployment is successful.
- 5. Oppen the app then the page will open and you will see a text says 
-    'the install workrd successfully' from Django.
+ 5. Open the app then the page will open and you will see a text says 
+    'the install worked successfully' from Django.
 
 **Later Deploy**
 
  1. Set `DEBUG = False`.
- 2. Commit and push ti GitHub.
+ 2. Commit and push to GitHub.
  3. In heroku choose the app and go to settings tab then click on 'reveal config vars'.
  4. Delete 'DISABLE_COLLECTSTATIC' variable.
  5. Deploy your app as in the previous step.
@@ -699,7 +708,7 @@ To fork the repository in GitHub
 2. Click on the green 'code' button in the right, select HTTPs and copy the link.
 3. In your IDE change the current directory to the one you want to create this clone in
    or create a new directory under some name.
-4. Type git clone, and pase the link you copied and press Enter to create a local cloan.
+4. Type git clone, and paste the link you copied and press Enter to create a local cloan.
 
 Information about creating and managing repositories is [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 
@@ -742,45 +751,3 @@ Sites I visited alway for problem solving:
 
 <u>[Back To Top](#table)</u>
 <hr/>
-**Validator Testing**
-  - HTML
-    - I tested all pages and no errors were returned when passing through the official W3C validator
-    ![](/media/index-page-validator.png)
-    ![](/media/gallery-page-validator.png)
-    ![](/media/history-page-validator.png)
-    ![](/media/form-page-validator.png)
-  - CSS 
-    <p>
-       <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-       </a>
-    </p>
-    
-    - No errors were found when passing through the official (Jigsaw) validator
-      ![](/media/css-code-%20validator.png)
-  - Accesibility
-    - Colors and fonts are accesible and readable using lighthouse in devtools.
-      ![](/media/accessibility.png)
-
-
-
-## Credits
-- Content
-  - The text for the Home page was taken from Wikipedia Article A
-  - Instructions on how to implement form validation on the Sign Up page was taken from Specific YouTube - Tutorial
-  - The icons in the footer were taken from Font Awesome
-  - The code for social media links was taken from **Love running Project**.
-  - The Form dedign was taken from **Love running Project**.
-  - The following websites ware used for problem solving.
-    - **https://www.diffchecker.com/**.
-    - **https://stackoverflow.com/**.
-    - **https://www.w3schools.com/**.
-    - **https://www.perplexity.ai/**.
-    - **https://www.pexels.com/**.
-    - **https://tinypng.com/**.
-
-- Media
-  - The photos in Gallery page from open source(Google search).
-  - the background image of the home page is also.
