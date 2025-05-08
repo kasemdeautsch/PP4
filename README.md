@@ -345,6 +345,12 @@ The register, login and logout pages are consistent and have the same look and a
     - Only the bookings related to the user currently logged in will show.
 
       ![](/static/images/features/landing2.png)
+
+  - Added new feature to avoid duplication in the booking by ensuring the uniqeness of the fields:  
+    'name', 'date', 'time',
+
+    ![](/static/images/features/duplicate.png)
+
 <hr/>
 
 - Edit Booking:  

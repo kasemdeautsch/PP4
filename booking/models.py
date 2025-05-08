@@ -56,7 +56,13 @@ class Reservation(models.Model):
         """
         Meta data for the model.
         Order the felds from newest to oldest.
+
+        Attributes:
+        unique_together (tuple): Validates that the combination of 'table',
+        'date', and 'time' is unique.
         """
+        unique_together = ("name", "date", "time")
+
         ordering = ["-date"]
 
     def __str__(self):
