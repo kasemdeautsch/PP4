@@ -268,6 +268,8 @@ these were tested manually to confirm that it passes and achieve the goal for ea
 Some of the text test was copied from the [Restaurant Project](https://github.com/Pramilashanmugam/Restaurant)  
 but the functionality was tested and validated as the time was critical.
 
+I tested the 'Python' code which was applied to the buttons to check the functionality, usability,  
+and data management.
 
 `Navbar`
 
@@ -297,6 +299,9 @@ but the functionality was tested and validated as the time was critical.
 
 `Click on Buttons on My Bookings page`
 
+The 'Edit' and 'Delete' buttons are assigned a dynamic data attribute that responds to user interactions  
+and apply an action using [Javascript](/static/js/script.js) code and was also tested manually:
+
 | Scenario        | Expected           | result  |
 | ------------- |:-------------:| -----:|
 | Click on 'Edit booking' button | 1. should navigate to a new page with the selected booking details 2. should be able to change any particular field detail  | 1. Pass- as expected when clicked navigates to new page with the selected booking details  2. Pass - as expected the user is able to change every detail in any field| 
@@ -304,6 +309,9 @@ but the functionality was tested and validated as the time was critical.
 
 
 `Click on Buttons on Modal`
+
+The 'Delete' button on modal also have a dynamic [Javascript](/static/js/script.js) code and  
+was tested manually:
 
 | Scenario        | Expected           | result  |
 | ------------- |:-------------:| -----:|
